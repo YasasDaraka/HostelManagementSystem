@@ -1,0 +1,26 @@
+<component name="libraryTable">
+  <library name="commons-codec-1.15">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/lk/ijse/gdse/hostelManagement/lib/twilio/commons-codec-1.15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lk/ijse/gdse/hostelManagement/lib/twilio/commons-io-2.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lk/ijse/gdse/hostelManagement/lib/twilio/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lk/ijse/gdse/hostelManagement/lib/twilio/httpclient-4.5.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lk/ijse/gdse/hostelManagement/lib/twilio/httpcore-4.4.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lk/ijse/gdse/hostelManagement/lib/twilio/jackson-annotations-2.14.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lk/ijse/gdse/hostelManagement/lib/twilio/jackson-core-2.14.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lk/ijse/gdse/hostelManagement/lib/twilio/jackson-databind-2.14.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lk/ijse/gdse/hostelManagement/lib/twilio/jackson-dataformat-xml-2.14.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lk/ijse/gdse/hostelManagement/lib/twilio/jackson-datatype-jsr310-2.14.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lk/ijse/gdse/hostelManagement/lib/twilio/jjwt-api-0.11.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lk/ijse/gdse/hostelManagement/lib/twilio/jjwt-impl-0.11.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lk/ijse/gdse/hostelManagement/lib/twilio/jjwt-jackson-0.11.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lk/ijse/gdse/hostelManagement/lib/twilio/json-20220320.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lk/ijse/gdse/hostelManagement/lib/twilio/slf4j-api-1.7.30.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lk/ijse/gdse/hostelManagement/lib/twilio/stax2-api-4.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lk/ijse/gdse/hostelManagement/lib/twilio/twilio-9.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lk/ijse/gdse/hostelManagement/lib/twilio/woodstox-core-6.4.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
