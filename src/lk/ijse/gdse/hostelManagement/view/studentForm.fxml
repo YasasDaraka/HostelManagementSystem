@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StudentFormController">
+   <children>
+      <AnchorPane prefHeight="702.0" prefWidth="1054.0">
+         <children>
+            <ImageView fx:id="imgStudent" fitHeight="74.0" fitWidth="70.0" layoutX="10.0" layoutY="7.0" onMouseClicked="#studentManage" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assests/images/good-review.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="94.0" layoutY="12.0" opacity="0.75" prefHeight="37.0" prefWidth="329.0" text="Student Details Manage" textAlignment="CENTER" textFill="#195372">
+               <font>
+                  <Font name="Arial Black" size="24.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="53.0" fitWidth="55.0" layoutX="991.0" layoutY="10.0" onMouseClicked="#navigateToHome" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assests/images/home-icon.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <TextField fx:id="txtFirstName" alignment="CENTER" focusTraversable="false" layoutX="199.0" layoutY="173.0" prefHeight="37.0" prefWidth="295.0" promptText="First name" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </TextField>
+            <ComboBox layoutX="200.0" layoutY="231.0" opacity="0.75" prefHeight="37.0" prefWidth="190.0" promptText="                       Gender" style="-fx-background-radius: 50; -fx-background-color: #ebf2ed;" />
+            <TextField fx:id="txtId" alignment="CENTER" focusTraversable="false" layoutX="199.0" layoutY="113.0" prefHeight="37.0" prefWidth="295.0" promptText="Customer id" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtAddress" alignment="CENTER" focusTraversable="false" layoutX="199.0" layoutY="289.0" prefHeight="37.0" prefWidth="295.0" promptText="Customer Address" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtContact" alignment="CENTER" focusTraversable="false" layoutX="199.0" layoutY="347.0" prefHeight="37.0" prefWidth="295.0" promptText="Customer Contact" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </TextField>
+            <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="541.0" layoutY="120.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #99b6d3; -fx-background-radius: 20;" text="Save" />
+            <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="541.0" layoutY="178.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #8FB280; -fx-background-radius: 20;" text="Update" />
+            <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="541.0" layoutY="236.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #FFB3B3; -fx-background-radius: 20;" text="Delete" textFill="#a80000" />
+            <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="541.0" layoutY="294.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #95A9B0; -fx-background-radius: 20;" text="Search" />
+            <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="541.0" layoutY="353.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #99b6d3; -fx-background-radius: 20;" text="Clear" />
+            <Label layoutX="57.0" layoutY="181.0" prefHeight="17.0" prefWidth="124.0" text="Name" textFill="#6892bc">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="57.0" layoutY="118.0" prefHeight="17.0" prefWidth="124.0" text="Student ID" textFill="#6892bc">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="57.0" layoutY="297.0" prefHeight="17.0" prefWidth="124.0" text="Contact No" textFill="#6892bc">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="57.0" layoutY="353.0" prefHeight="17.0" prefWidth="124.0" text="Student Contact" textFill="#6892bc">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="57.0" layoutY="240.0" prefHeight="17.0" prefWidth="124.0" text="Gender" textFill="#6892bc">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <TableView fx:id="tblStudent" layoutX="23.0" layoutY="437.0" prefHeight="243.0" prefWidth="1010.0" style="-fx-background-color: #ebf2ed;">
+         <columns>
+            <TableColumn fx:id="colstId" prefWidth="125.33332824707031" text="Student ID" />
+            <TableColumn fx:id="colStName" prefWidth="188.66665649414062" text="Student Name" />
+            <TableColumn fx:id="colAddress" prefWidth="136.66668701171875" text="Gender" />
+            <TableColumn fx:id="colContact" prefWidth="192.0" text="Address" />
+            <TableColumn fx:id="colDob" prefWidth="208.0" text="Contact No" />
+            <TableColumn fx:id="colGender" prefWidth="164.33331298828125" text="Dath of Birth" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

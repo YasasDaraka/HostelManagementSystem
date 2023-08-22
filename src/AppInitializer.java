@@ -13,6 +13,11 @@ public class AppInitializer extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-
+        Parent parent = FXMLLoader.load(getClass().getResource("/lk/ijse/gdse/hostelManagement/view/dashboardForm.fxml"));
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.setTitle("Dashboard");
+        stage.centerOnScreen();
+        stage.show();
     }
 }
