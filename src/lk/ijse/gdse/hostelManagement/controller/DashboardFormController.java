@@ -62,7 +62,8 @@ public class DashboardFormController implements Initializable {
         Navigation.navigate(Routes.STUDENT,root);
     }
 
-    public void roomMange(MouseEvent mouseEvent) {
+    public void roomMange(MouseEvent mouseEvent) throws IOException {
+        Navigation.navigate(Routes.ROOM,root);
     }
 
     public void reservationMange(MouseEvent mouseEvent) {

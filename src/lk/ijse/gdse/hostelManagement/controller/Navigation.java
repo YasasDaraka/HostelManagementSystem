@@ -24,6 +24,10 @@ public class Navigation {
                 window.setTitle ("DASHBOARD");
                 iniUi("dashboardForm.fxml");
                 break;
+            case ROOM:
+                window.setTitle ("ROOM MANAGE");
+                iniUi("roomForm.fxml");
+                break;
             default:
                 System.out.println ("Fxml Not Loading");
         }
