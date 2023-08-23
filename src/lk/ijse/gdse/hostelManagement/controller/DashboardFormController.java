@@ -1,18 +1,35 @@
 package lk.ijse.gdse.hostelManagement.controller;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
 import javafx.animation.ScaleTransition;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
-public class DashboardFormController {
+import java.io.IOException;
+import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ResourceBundle;
 
+public class DashboardFormController implements Initializable {
+    @FXML
+    public AnchorPane root;
+    @FXML
+    private Label date;
+    @FXML
+    private Label time;
     @FXML
     private ImageView imgStudent;
     @FXML
@@ -26,6 +43,12 @@ public class DashboardFormController {
     @FXML
     private Label lblDescription;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        setDate();
+        setTime();
+    }
+
     @FXML
     private void logout(ActionEvent actionEvent) {
     }
@@ -33,8 +56,10 @@ public class DashboardFormController {
     @FXML
     private void roomManage(MouseEvent mouseEvent) {
     }
-    
-    public void studentManage(MouseEvent mouseEvent) {
+
+    @FXML
+    private void studentManage(MouseEvent mouseEvent) throws IOException {
+        Navigation.navigate(Routes.STUDENT,root);
     }
 
     public void roomMange(MouseEvent mouseEvent) {
@@ -97,5 +122,19 @@ public class DashboardFormController {
             lblMenu.setText("Welcome");
             lblDescription.setText("Please select one of above main operations to proceed");
         }
+    }
+    @FXML
+    private void setDate() {
+        date.setText(String.valueOf(LocalDate.now()));
+    }
+    
+    @FXML
+    private void setTime() {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.ZERO, e ->{
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss");
+            time.setText(LocalTime.now().format(formatter));
+        }),new KeyFrame(Duration.seconds(1)));
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
     }
 }
