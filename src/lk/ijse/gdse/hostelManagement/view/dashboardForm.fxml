@@ -50,7 +50,7 @@
             <Label layoutX="925.0" layoutY="11.0" prefHeight="25.0" prefWidth="89.0" text="Administrator" />
             <Pane layoutX="862.0" layoutY="108.0" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #EBEDEF; -fx-background-radius: 25;">
                <children>
-                  <Label layoutX="50.0" layoutY="36.0" opacity="0.75" prefHeight="37.0" prefWidth="76.0" text="Staff" textAlignment="CENTER" textFill="#195372">
+                  <Label layoutX="18.0" layoutY="36.0" opacity="0.75" prefHeight="37.0" prefWidth="135.0" text="Bookings" textAlignment="CENTER" textFill="#195372">
                      <font>
                         <Font name="Arial Black" size="24.0" />
                      </font>
@@ -64,7 +64,7 @@
             </Pane>
             <Pane layoutX="638.0" layoutY="108.0" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #EBEDEF; -fx-background-radius: 25;">
                <children>
-                  <Label layoutX="35.0" layoutY="36.0" opacity="0.75" prefHeight="37.0" prefWidth="132.0" text="Jailers" textAlignment="CENTER" textFill="#195372">
+                  <Label layoutX="37.0" layoutY="36.0" opacity="0.75" prefHeight="37.0" prefWidth="92.0" text="Rooms" textAlignment="CENTER" textFill="#195372">
                      <font>
                         <Font name="Arial Black" size="24.0" />
                      </font>
@@ -78,7 +78,7 @@
             </Pane>
             <Pane layoutX="417.0" layoutY="108.0" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #EBEDEF; -fx-background-radius: 25;">
                <children>
-                  <Label layoutX="19.0" layoutY="35.0" opacity="0.75" prefHeight="37.0" prefWidth="132.0" text="Prisoners" textAlignment="CENTER" textFill="#195372">
+                  <Label layoutX="21.0" layoutY="35.0" opacity="0.75" prefHeight="37.0" prefWidth="126.0" text="Students " textAlignment="CENTER" textFill="#195372">
                      <font>
                         <Font name="Arial Black" size="24.0" />
                      </font>
@@ -147,22 +147,22 @@
                   <Image url="@assests/images/open-enrollment.png" />
                </image>
             </ImageView>
-            <Label layoutX="101.0" layoutY="519.0" opacity="0.75" prefHeight="37.0" prefWidth="113.0" text="Student " textAlignment="CENTER" textFill="#195372">
+            <Label layoutX="101.0" layoutY="519.0" opacity="0.75" prefHeight="37.0" prefWidth="113.0" text="Student " textAlignment="CENTER" textFill="#424b4f">
                <font>
                   <Font name="Arial Black" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="373.0" layoutY="520.0" opacity="0.75" prefHeight="37.0" prefWidth="87.0" text="Room" textAlignment="CENTER" textFill="#195372">
+            <Label layoutX="373.0" layoutY="520.0" opacity="0.75" prefHeight="37.0" prefWidth="87.0" text="Room" textAlignment="CENTER" textFill="#424b4f">
                <font>
                   <Font name="Arial Black" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="561.0" layoutY="522.0" opacity="0.75" prefHeight="37.0" prefWidth="173.0" text="Reservations" textAlignment="CENTER" textFill="#195372">
+            <Label layoutX="561.0" layoutY="522.0" opacity="0.75" prefHeight="37.0" prefWidth="173.0" text="Reservations" textAlignment="CENTER" textFill="#424b4f">
                <font>
                   <Font name="Arial Black" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="836.0" layoutY="522.0" opacity="0.75" prefHeight="37.0" prefWidth="113.0" text="Settings" textAlignment="CENTER" textFill="#195372">
+            <Label layoutX="836.0" layoutY="522.0" opacity="0.75" prefHeight="37.0" prefWidth="113.0" text="Settings" textAlignment="CENTER" textFill="#424b4f">
                <font>
                   <Font name="Arial Black" size="24.0" />
                </font>
