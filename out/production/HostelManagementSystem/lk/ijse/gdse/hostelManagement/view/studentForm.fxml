@@ -17,6 +17,14 @@
    <children>
       <AnchorPane prefHeight="702.0" prefWidth="1054.0">
          <children>
+            <ImageView fitHeight="73.0" fitWidth="80.0" layoutX="974.0" layoutY="12.0" onMouseClicked="#navigateToHome" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <image>
+                  <Image url="@assests/images/output.gif" />
+               </image>
+            </ImageView>
             <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="14.0" layoutY="12.0" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assests/images/good-review.png" />
@@ -27,14 +35,6 @@
                   <Font name="Arial Black" size="24.0" />
                </font>
             </Label>
-            <ImageView fitHeight="53.0" fitWidth="55.0" layoutX="991.0" layoutY="10.0" onMouseClicked="#navigateToHome" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assests/images/home-icon.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
             <TextField fx:id="txtFirstName" alignment="CENTER" focusTraversable="false" layoutX="237.0" layoutY="147.0" prefHeight="37.0" prefWidth="295.0" promptText="Name" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -92,17 +92,17 @@
                </font>
             </Label>
             <DatePicker layoutX="238.0" layoutY="380.0" prefHeight="37.0" prefWidth="191.0" promptText="              Date of birth" style="-fx-background-radius: 50; -fx-background-color: #ebf2ed;" />
+            <TableView fx:id="tblStudent" layoutX="20.0" layoutY="450.0" prefHeight="234.0" prefWidth="1010.0" style="-fx-background-color: #ebf2ed;">
+               <columns>
+                  <TableColumn fx:id="colstId" prefWidth="125.33332824707031" text="Student ID" />
+                  <TableColumn fx:id="colStName" prefWidth="188.66665649414062" text="Student Name" />
+                  <TableColumn fx:id="colAddress" prefWidth="136.66668701171875" text="Gender" />
+                  <TableColumn fx:id="colContact" prefWidth="192.0" text="Address" />
+                  <TableColumn fx:id="colDob" prefWidth="208.0" text="Contact No" />
+                  <TableColumn fx:id="colGender" prefWidth="164.33331298828125" text="Dath of Birth" />
+               </columns>
+            </TableView>
          </children>
       </AnchorPane>
-      <TableView fx:id="tblStudent" layoutX="23.0" layoutY="446.0" prefHeight="234.0" prefWidth="1010.0" style="-fx-background-color: #ebf2ed;">
-         <columns>
-            <TableColumn fx:id="colstId" prefWidth="125.33332824707031" text="Student ID" />
-            <TableColumn fx:id="colStName" prefWidth="188.66665649414062" text="Student Name" />
-            <TableColumn fx:id="colAddress" prefWidth="136.66668701171875" text="Gender" />
-            <TableColumn fx:id="colContact" prefWidth="192.0" text="Address" />
-            <TableColumn fx:id="colDob" prefWidth="208.0" text="Contact No" />
-            <TableColumn fx:id="colGender" prefWidth="164.33331298828125" text="Dath of Birth" />
-         </columns>
-      </TableView>
    </children>
 </AnchorPane>

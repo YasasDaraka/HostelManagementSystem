@@ -28,6 +28,10 @@ public class Navigation {
                 window.setTitle ("ROOM MANAGE");
                 iniUi("roomForm.fxml");
                 break;
+            case RESERVATION:
+                window.setTitle ("ROOM MANAGE");
+                iniUi("reservationForm.fxml");
+                break;
             default:
                 System.out.println ("Fxml Not Loading");
         }

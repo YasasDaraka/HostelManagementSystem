@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.hostelManagement.controller.RoomFormController">
    <children>
       <AnchorPane layoutY="-1.0" prefHeight="702.0" prefWidth="1054.0">
@@ -26,13 +25,13 @@
                   <Font name="Arial Black" size="28.0" />
                </font>
             </Label>
-            <ImageView fitHeight="53.0" fitWidth="55.0" layoutX="991.0" layoutY="13.0" onMouseClicked="#navigateToHome" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assests/images/home-icon.png" />
-               </image>
+            <ImageView fitHeight="73.0" fitWidth="80.0" layoutX="974.0" layoutY="13.0" onMouseClicked="#navigateToHome" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <image>
+                  <Image url="@assests/images/output.gif" />
+               </image>
             </ImageView>
             <TextField fx:id="txtFirstName" alignment="CENTER" focusTraversable="false" layoutX="370.0" layoutY="200.0" prefHeight="37.0" prefWidth="295.0" promptText="Room Type" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
                <font>
@@ -79,15 +78,15 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </TextField>
+            <TableView fx:id="tblStudent" layoutX="20.0" layoutY="430.0" prefHeight="250.0" prefWidth="1010.0" style="-fx-background-color: #ebf2ed;">
+               <columns>
+                  <TableColumn fx:id="colstId" prefWidth="233.3333282470703" text="Room ID" />
+                  <TableColumn fx:id="colStName" prefWidth="262.6666717529297" text="Room Type" />
+                  <TableColumn fx:id="colAddress" prefWidth="278.33331298828125" text="Key Money" />
+                  <TableColumn fx:id="colContact" prefWidth="236.66668701171875" text="Quantity" />
+               </columns>
+            </TableView>
          </children>
       </AnchorPane>
-      <TableView fx:id="tblStudent" layoutX="22.0" layoutY="429.0" prefHeight="250.0" prefWidth="1010.0" style="-fx-background-color: #ebf2ed;">
-         <columns>
-            <TableColumn fx:id="colstId" prefWidth="233.3333282470703" text="Room ID" />
-            <TableColumn fx:id="colStName" prefWidth="262.6666717529297" text="Room Type" />
-            <TableColumn fx:id="colAddress" prefWidth="278.33331298828125" text="Key Money" />
-            <TableColumn fx:id="colContact" prefWidth="236.66668701171875" text="Quantity" />
-         </columns>
-      </TableView>
    </children>
 </AnchorPane>
