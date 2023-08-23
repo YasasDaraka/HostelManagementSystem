@@ -54,10 +54,6 @@ public class DashboardFormController implements Initializable {
     }
 
     @FXML
-    private void roomManage(MouseEvent mouseEvent) {
-    }
-
-    @FXML
     private void studentManage(MouseEvent mouseEvent) throws IOException {
         Navigation.navigate(Routes.STUDENT,root);
     }
@@ -73,7 +69,9 @@ public class DashboardFormController implements Initializable {
     }
 
     @FXML
-    private void settingMange(MouseEvent mouseEvent) {
+    private void settingMange(MouseEvent mouseEvent) throws IOException {
+        Navigation.navigate(Routes.SETTING,root);
+
     }
 
     @FXML

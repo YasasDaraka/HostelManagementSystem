@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -33,26 +33,21 @@
                   <Image url="@assests/images/output.gif" />
                </image>
             </ImageView>
-            <TextField fx:id="txtFirstName" alignment="CENTER" focusTraversable="false" layoutX="370.0" layoutY="200.0" prefHeight="37.0" prefWidth="295.0" promptText="Room Type" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
+            <TextField fx:id="txtFirstName" alignment="CENTER" focusTraversable="false" layoutX="370.0" layoutY="200.0" prefHeight="37.0" prefWidth="295.0" promptText="Room Type" style="-fx-background-color: DDE7E7; -fx-background-radius: 50;">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtId" alignment="CENTER" focusTraversable="false" layoutX="370.0" layoutY="128.0" prefHeight="37.0" prefWidth="295.0" promptText="Room ID" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
+            <TextField fx:id="txtId" alignment="CENTER" focusTraversable="false" layoutX="370.0" layoutY="128.0" prefHeight="37.0" prefWidth="295.0" promptText="Room ID" style="-fx-background-color: DDE7E7; -fx-background-radius: 50;">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtAddress" alignment="CENTER" focusTraversable="false" layoutX="370.0" layoutY="341.0" prefHeight="37.0" prefWidth="295.0" promptText="Quantity" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
+            <TextField fx:id="txtAddress" alignment="CENTER" focusTraversable="false" layoutX="370.0" layoutY="341.0" prefHeight="37.0" prefWidth="295.0" promptText="Quantity" style="-fx-background-color: DDE7E7; -fx-background-radius: 50;">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </TextField>
-            <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="735.0" layoutY="128.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #99b6d3; -fx-background-radius: 20;" text="Save" />
-            <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="735.0" layoutY="184.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #8FB280; -fx-background-radius: 20;" text="Update" />
-            <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="735.0" layoutY="241.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #FFB3B3; -fx-background-radius: 20;" text="Delete" textFill="#a80000" />
-            <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="735.0" layoutY="297.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #95A9B0; -fx-background-radius: 20;" text="Search" />
-            <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="735.0" layoutY="351.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #99b6d3; -fx-background-radius: 20;" text="Clear" />
             <Label layoutX="228.0" layoutY="205.0" prefHeight="17.0" prefWidth="124.0" text="Room Type" textFill="#6892bc">
                <font>
                   <Font name="System Bold" size="18.0" />
@@ -73,7 +68,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtFirstName1" alignment="CENTER" focusTraversable="false" layoutX="370.0" layoutY="270.0" prefHeight="37.0" prefWidth="295.0" promptText="Key Money" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
+            <TextField fx:id="txtFirstName1" alignment="CENTER" focusTraversable="false" layoutX="370.0" layoutY="270.0" prefHeight="37.0" prefWidth="295.0" promptText="Key Money" style="-fx-background-color: DDE7E7; -fx-background-radius: 50;">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -86,6 +81,11 @@
                   <TableColumn fx:id="colContact" prefWidth="236.66668701171875" text="Quantity" />
                </columns>
             </TableView>
+            <JFXButton layoutX="735.0" layoutY="128.0" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #99b6d3; -fx-background-radius: 50;" text="Save" />
+            <JFXButton layoutX="735.0" layoutY="184.0" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #8FB280; -fx-background-radius: 50;" text="Update" />
+            <JFXButton layoutX="735.0" layoutY="241.0" onAction="#btnDeleteOnAction" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #FFB3B3; -fx-background-radius: 50;" text="Delete" textFill="#a80000" />
+            <JFXButton layoutX="735.0" layoutY="297.0" onAction="#btnSearchOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #95A9B0; -fx-background-radius: 50;" text="Search" />
+            <JFXButton layoutX="735.0" layoutY="351.0" onAction="#btnClearOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #99b6d3; -fx-background-radius: 50;" text="Clear" />
          </children>
       </AnchorPane>
    </children>
