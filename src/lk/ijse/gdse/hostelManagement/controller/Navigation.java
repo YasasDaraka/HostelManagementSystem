@@ -17,23 +17,23 @@ public class Navigation {
 
         switch (routes) {
             case STUDENT:
-                window.setTitle ("MANAGE STUDENTS");
+                window.setTitle ("Manage Students");
                 iniUi("studentForm.fxml");
                 break;
             case DASHBOARD:
-                window.setTitle ("DASHBOARD");
+                window.setTitle ("Dashboard");
                 iniUi("dashboardForm.fxml");
                 break;
             case ROOM:
-                window.setTitle ("ROOM MANAGE");
+                window.setTitle ("Rooms Manage");
                 iniUi("roomForm.fxml");
                 break;
             case RESERVATION:
-                window.setTitle ("RESERVATION MANAGE");
+                window.setTitle ("Reservation Manage");
                 iniUi("reservationForm.fxml");
                 break;
             case SETTING:
-                window.setTitle ("SETTING MANAGE");
+                window.setTitle ("Settings Manage");
                 iniUi("settingForm.fxml");
                 break;
             default:
