@@ -35,12 +35,12 @@
                   <Font name="Arial Black" size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="txtFirstName" alignment="CENTER" focusTraversable="false" layoutX="237.0" layoutY="147.0" prefHeight="37.0" prefWidth="295.0" promptText="Name" style="-fx-background-color: DDE7E7; -fx-background-radius: 50;">
+            <TextField fx:id="txtname" alignment="CENTER" focusTraversable="false" layoutX="237.0" layoutY="147.0" prefHeight="37.0" prefWidth="295.0" promptText="Name" style="-fx-background-color: DDE7E7; -fx-background-radius: 50;">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </TextField>
-            <ComboBox layoutX="238.0" layoutY="205.0" opacity="0.7" prefHeight="37.0" prefWidth="190.0" promptText="                     Gender" style="-fx-background-radius: 50; -fx-background-color: DDE7E7;" />
+            <ComboBox fx:id="cmbGender" layoutX="238.0" layoutY="205.0" opacity="0.7" prefHeight="37.0" prefWidth="190.0" promptText="                     Gender" style="-fx-background-radius: 50; -fx-background-color: DDE7E7;" />
             <TextField fx:id="txtId" alignment="CENTER" focusTraversable="false" layoutX="237.0" layoutY="85.0" prefHeight="37.0" prefWidth="295.0" promptText="Student ID" style="-fx-background-color: DDE7E7; -fx-background-radius: 50;">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -91,7 +91,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <DatePicker layoutX="238.0" layoutY="380.0" prefHeight="37.0" prefWidth="191.0" promptText="              Date of birth" style="-fx-background-radius: 50; -fx-background-color: DDE7E7;" />
+            <DatePicker fx:id="datePick" layoutX="238.0" layoutY="380.0" prefHeight="37.0" prefWidth="191.0" promptText="              Date of birth" style="-fx-background-radius: 50; -fx-background-color: DDE7E7;" />
             <TableView fx:id="tblStudent" layoutX="20.0" layoutY="450.0" prefHeight="234.0" prefWidth="1010.0" style="-fx-background-color: #ebf2ed;">
                <columns>
                   <TableColumn fx:id="colstId" prefWidth="125.33332824707031" text="Student ID" />
