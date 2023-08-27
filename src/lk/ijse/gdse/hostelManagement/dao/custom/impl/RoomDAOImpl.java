@@ -43,4 +43,14 @@ public class RoomDAOImpl implements RoomDAO<Room,String> {
         session.close();
         return list;
     }
+    @Override
+    public List<String> getIds() {
+
+        String hql = "SELECT roomId from Room ";
+        Query<String> query=session.createQuery (hql);
+        List<String> results = query.list();
+        session.close();
+        return results;
+
+    }
 }

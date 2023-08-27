@@ -1,5 +1,6 @@
 package lk.ijse.gdse.hostelManagement.bo;
 
+import lk.ijse.gdse.hostelManagement.bo.custom.impl.ReservationBOImpl;
 import lk.ijse.gdse.hostelManagement.bo.custom.impl.RoomBOImpl;
 import lk.ijse.gdse.hostelManagement.bo.custom.impl.StudentBOImpl;
 
@@ -22,6 +23,8 @@ public class BOFactory {
                 return (T) new StudentBOImpl();
             case ROOM:
                 return (T) new RoomBOImpl();
+            case RESERVATION:
+                return (T) new ReservationBOImpl();
             default:
                 return null;
         }

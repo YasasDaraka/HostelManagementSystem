@@ -2,10 +2,8 @@ package lk.ijse.gdse.hostelManagement.entity;
 import lk.ijse.gdse.hostelManagement.dto.RoomDTO;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,6 +23,13 @@ public class Room {
     private String keyMoney;
     @Column(name = "qty")
     private int qty;
+
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "room")
+    List<Reservation> reservationList;
+
+    public Room(String roomId) {
+        this.roomId=roomId;
+    }
 
     public RoomDTO toDto() {
         RoomDTO room = new RoomDTO();

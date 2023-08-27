@@ -75,7 +75,10 @@ public class RoomBOImpl implements RoomBO {
         for (Room room:roList) {
             list.add(room.toDto());
         }
-        return list;
+        if(list != null) {
+            return list;
+        }
+        return null;
     }
 
     @Override

@@ -43,4 +43,14 @@ public class StudentDAOImpl implements StudentDAO<Student,String> {
         session.close();
         return list;
     }
+    @Override
+    public List<String> getIds() {
+
+        String hql = "SELECT stId from Student ";
+        Query<String> query=session.createQuery (hql);
+        List<String> results = query.list();
+        session.close();
+        return results;
+
+    }
 }

@@ -1,5 +1,6 @@
 package lk.ijse.gdse.hostelManagement.config;
 
+import lk.ijse.gdse.hostelManagement.entity.Reservation;
 import lk.ijse.gdse.hostelManagement.entity.Room;
 import lk.ijse.gdse.hostelManagement.entity.Student;
 import org.hibernate.Session;
@@ -15,6 +16,7 @@ public class SessionFactoryConfig {
         sessionFactory = new MetadataSources(new StandardServiceRegistryBuilder().loadProperties("hibernate.cfg.properties").build())
                 .addAnnotatedClass(Student.class)
                 .addAnnotatedClass(Room.class)
+                .addAnnotatedClass(Reservation.class)
                 .getMetadataBuilder()
                 .applyImplicitNamingStrategy(ImplicitNamingStrategyJpaCompliantImpl.INSTANCE)
                 .build().buildSessionFactory();

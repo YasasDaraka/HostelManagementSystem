@@ -87,7 +87,10 @@ public class StudentBOImpl implements StudentBO {
         for (Student student:stList) {
             list.add(student.toDto());
         }
-        return list;
+        if(list != null) {
+            return list;
+        }
+        return null;
     }
 
 }

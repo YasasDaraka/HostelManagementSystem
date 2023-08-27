@@ -1,5 +1,6 @@
 package lk.ijse.gdse.hostelManagement.dao;
 
+import lk.ijse.gdse.hostelManagement.dao.custom.impl.ReservationDAOImpl;
 import lk.ijse.gdse.hostelManagement.dao.custom.impl.RoomDAOImpl;
 import lk.ijse.gdse.hostelManagement.dao.custom.impl.StudentDAOImpl;
 
@@ -22,6 +23,9 @@ public class DAOFactory {
                 return (T) new StudentDAOImpl();
             case ROOM:
                 return (T) new RoomDAOImpl();
+            case RESERVATION:
+                return (T) new ReservationDAOImpl();
+
             default:
                 return null;
         }

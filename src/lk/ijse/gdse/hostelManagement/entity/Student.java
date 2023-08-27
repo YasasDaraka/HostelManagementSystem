@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -30,6 +31,13 @@ public class Student {
     private Date dob;
     @Column(name = "gender")
     private String gender;
+
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "student")
+    private List<Reservation> reservationList;
+
+    public Student(String studentId) {
+        this.stId=studentId;
+    }
 
     public StudentDTO toDto() {
         StudentDTO studentDTO = new StudentDTO();

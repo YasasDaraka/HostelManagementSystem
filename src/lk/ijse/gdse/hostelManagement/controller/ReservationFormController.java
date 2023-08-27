@@ -1,8 +1,11 @@
 package lk.ijse.gdse.hostelManagement.controller;
 
 import javafx.animation.ScaleTransition;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -12,13 +15,15 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.query.Query;
+import lk.ijse.gdse.hostelManagement.bo.BOFactory;
+import lk.ijse.gdse.hostelManagement.bo.custom.ReservationBO;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class ReservationFormController {
+public class ReservationFormController implements Initializable {
 
     @FXML
     public AnchorPane root;
@@ -37,6 +42,16 @@ public class ReservationFormController {
     @FXML
     private Label lblRoomType;
 
+    ReservationBO reservationBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.RESERVATION);
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ObservableList<String> data = FXCollections.observableArrayList ("PAID","UNPAID");
+        cmbStatus.setItems (data);
+        nextResId();
+        loadRoomId();
+        loadStId();
+    }
     @FXML
     private void playMouseEnterAnimation(MouseEvent mouseEvent) {
         if (mouseEvent.getSource() instanceof ImageView) {
@@ -92,5 +107,21 @@ public class ReservationFormController {
     @FXML
     private void btnClearOnAction(ActionEvent actionEvent) {
     }
-    
+    private void nextResId() {
+       String id = reservationBO.loadResId();
+       txtResId.setText(id);
+    }
+    private void loadRoomId() {
+        List<String> roomIds = reservationBO.getRoomIds();
+        ObservableList room = FXCollections.observableArrayList (roomIds);
+        cmbRmId.setItems (room);
+    }
+    private void loadStId() {
+        List<String> stIds = reservationBO.getStIds();
+        ObservableList student = FXCollections.observableArrayList (stIds);
+        cmdStId.setItems (student);
+    }
+
+    public void searchOnAction(ActionEvent actionEvent) {
+    }
 }
