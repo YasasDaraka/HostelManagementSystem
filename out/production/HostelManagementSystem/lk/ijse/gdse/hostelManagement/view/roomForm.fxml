@@ -33,17 +33,17 @@
                   <Image url="@assests/images/output.gif" />
                </image>
             </ImageView>
-            <TextField fx:id="txtFirstName" alignment="CENTER" focusTraversable="false" layoutX="370.0" layoutY="200.0" prefHeight="37.0" prefWidth="295.0" promptText="Room Type" style="-fx-background-color: DDE7E7; -fx-background-radius: 50;">
+            <TextField fx:id="txtType" alignment="CENTER" focusTraversable="false" layoutX="370.0" layoutY="200.0" prefHeight="37.0" prefWidth="295.0" promptText="Room Type" style="-fx-background-color: DDE7E7; -fx-background-radius: 50;">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtId" alignment="CENTER" focusTraversable="false" layoutX="370.0" layoutY="128.0" prefHeight="37.0" prefWidth="295.0" promptText="Room ID" style="-fx-background-color: DDE7E7; -fx-background-radius: 50;">
+            <TextField fx:id="txtId" alignment="CENTER" focusTraversable="false" layoutX="370.0" layoutY="128.0" onAction="#searchOnAction" prefHeight="37.0" prefWidth="295.0" promptText="Room ID" style="-fx-background-color: DDE7E7; -fx-background-radius: 50;">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtAddress" alignment="CENTER" focusTraversable="false" layoutX="370.0" layoutY="341.0" prefHeight="37.0" prefWidth="295.0" promptText="Quantity" style="-fx-background-color: DDE7E7; -fx-background-radius: 50;">
+            <TextField fx:id="txtQty" alignment="CENTER" focusTraversable="false" layoutX="370.0" layoutY="341.0" prefHeight="37.0" prefWidth="295.0" promptText="Quantity" style="-fx-background-color: DDE7E7; -fx-background-radius: 50;">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -68,7 +68,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtFirstName1" alignment="CENTER" focusTraversable="false" layoutX="370.0" layoutY="270.0" prefHeight="37.0" prefWidth="295.0" promptText="Key Money" style="-fx-background-color: DDE7E7; -fx-background-radius: 50;">
+            <TextField fx:id="txtKeyMoney" alignment="CENTER" focusTraversable="false" layoutX="370.0" layoutY="270.0" prefHeight="37.0" prefWidth="295.0" promptText="Key Money" style="-fx-background-color: DDE7E7; -fx-background-radius: 50;">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

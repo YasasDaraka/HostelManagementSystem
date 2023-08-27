@@ -3,13 +3,18 @@ package lk.ijse.gdse.hostelManagement.controller;
 import javafx.animation.ScaleTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.io.IOException;
 
@@ -17,6 +22,16 @@ public class ReservationFormController {
 
     @FXML
     public AnchorPane root;
+    @FXML
+    private TextField txtResId;
+    @FXML
+    private ComboBox cmbRmId;
+    @FXML
+    private ComboBox cmdStId;
+    @FXML
+    private ComboBox cmbStatus;
+    @FXML
+    private TextField txtQty;
     @FXML
     private Label lblStudentName;
     @FXML
@@ -59,6 +74,7 @@ public class ReservationFormController {
 
     @FXML
     private void btnSaveOnAction(ActionEvent actionEvent) {
+
     }
 
     @FXML
@@ -76,4 +92,5 @@ public class ReservationFormController {
     @FXML
     private void btnClearOnAction(ActionEvent actionEvent) {
     }
+    
 }
