@@ -68,6 +68,7 @@ public class RoomBOImpl implements RoomBO {
 
     @Override
     public List<RoomDTO> loadAll() {
+    try{
         session=SessionFactoryConfig.getInstance ().getSession ();
         roomDAO.setSession (session);
         List<Room> roList=roomDAO.loadAll ();
@@ -78,17 +79,28 @@ public class RoomBOImpl implements RoomBO {
         if(list != null) {
             return list;
         }
+    }catch(Exception e) {
+        e.printStackTrace();
+    } finally {
+        session.close();
+    }
         return null;
     }
 
     @Override
     public RoomDTO getRoom(String id) throws Exception {
-        session= SessionFactoryConfig.getInstance ().getSession ();
-        roomDAO.setSession (session);
-        Room room= (Room) roomDAO.get (id);
-        session.close();
-        if(room != null) {
-            return room.toDto();
+        try {
+            session = SessionFactoryConfig.getInstance().getSession();
+            roomDAO.setSession(session);
+            Room room = (Room) roomDAO.get(id);
+            session.close();
+            if (room != null) {
+                return room.toDto();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
         }
         return null;
     }

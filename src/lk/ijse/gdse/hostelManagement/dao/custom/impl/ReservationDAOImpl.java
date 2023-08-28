@@ -16,27 +16,33 @@ public class ReservationDAOImpl implements ReservationDAO<Reservation,String> {
 
     @Override
     public String save(Reservation object) {
-        return null;
+        System.out.println(object.getStudent().getStId());
+        System.out.println(object.getRoom().getRoomId());
+        return String.valueOf(session.save(object));
     }
 
     @Override
     public void update(Reservation object) {
-
+        session.update (object);
     }
 
     @Override
     public void delete(Reservation object) {
-
+        session.delete (object);
     }
 
     @Override
-    public Reservation get(String s) throws Exception {
-        return null;
+    public Reservation get(String id) throws Exception {
+        return session.get(Reservation.class,id);
     }
 
     @Override
-    public List loadAll() {
-        return null;
+    public List<Reservation> loadAll() {
+        String sqlQuery="FROM Reservation";
+        Query query = session.createQuery(sqlQuery);
+        List list =query.list ();
+        session.close();
+        return list;
     }
 
     @Override
@@ -45,21 +51,9 @@ public class ReservationDAOImpl implements ReservationDAO<Reservation,String> {
     }
 
     @Override
-    public String loadResId() {
-
+    public Query loadResId() {
         Query query = session.createQuery ("select resId from Reservation order by resId desc");
-        String nextId = "R001";
-        if (query.list ().size () == 0) {
-            return nextId;
-        } else {
-            String id = (String) query.list ().get (0);
-            String[] SUs = id.split ("R00");
-            for (String a : SUs) {
-                id = a;
-            }
-            int idNum = Integer.parseInt (id);
-            id = "R00" + (idNum + 1);
-            return id;
-        }
+        return query;
     }
+
 }

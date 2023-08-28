@@ -8,7 +8,6 @@ import lk.ijse.gdse.hostelManagement.dto.StudentDTO;
 import lk.ijse.gdse.hostelManagement.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,6 +68,7 @@ public class StudentBOImpl implements StudentBO {
 
     @Override
     public StudentDTO getStudent(String id) throws Exception {
+    try{
         session= SessionFactoryConfig.getInstance ().getSession ();
         studentDAO.setSession (session);
         Student student= (Student) studentDAO.get (id);
@@ -76,10 +76,16 @@ public class StudentBOImpl implements StudentBO {
         if(student != null) {
             return student.toDto();
         }
+    }catch(Exception e) {
+        e.printStackTrace();
+    } finally {
+        session.close();
+    }
         return null;
     }
     @Override
     public List<StudentDTO> loadAll() {
+    try{
         session=SessionFactoryConfig.getInstance ().getSession ();
         studentDAO.setSession (session);
         List<Student> stList=studentDAO.loadAll ();
@@ -90,6 +96,11 @@ public class StudentBOImpl implements StudentBO {
         if(list != null) {
             return list;
         }
+    }catch(Exception e) {
+        e.printStackTrace();
+    } finally {
+        session.close();
+    }
         return null;
     }
 

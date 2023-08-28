@@ -53,4 +53,22 @@ public class RoomDAOImpl implements RoomDAO<Room,String> {
         return results;
 
     }
+    @Override
+    public String roomQty(String id){
+        String hql = "SELECT r.qty FROM Room r WHERE r.roomId = :roomId";
+        Query<Integer> query = session.createQuery(hql, Integer.class);
+        query.setParameter("roomId", id);
+        Integer quantity = query.uniqueResult();
+        return quantity != null ? String.valueOf(quantity) : null;
+    }
+    @Override
+    public boolean checkRoom(String resId,String roomId) {
+        String hql = "SELECT COUNT(r) FROM Reservation r WHERE r.resId = :reservationId AND r.room.roomId = :roomId";
+        Query<Long> query = session.createQuery(hql, Long.class);
+        query.setParameter("reservationId", resId);
+        query.setParameter("roomId", roomId);
+        Long count = query.uniqueResult();
+        boolean roomExists = count > 0;
+        return roomExists;
+    }
 }

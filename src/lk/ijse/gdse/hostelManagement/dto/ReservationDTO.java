@@ -4,6 +4,8 @@ import lk.ijse.gdse.hostelManagement.entity.Room;
 import lk.ijse.gdse.hostelManagement.entity.Student;
 import lombok.*;
 
+import java.util.Date;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -12,16 +14,19 @@ import lombok.*;
 public class ReservationDTO {
 
         private String resId;
-        private String studentId;
-        private String roomId;
+        private StudentDTO studentDTO;
+        private RoomDTO roomDTO;
         private String status;
+        private Date date;
+
 
     public Reservation toEntity() {
         Reservation reservation = new Reservation();
         reservation.setResId(this.resId);
-        reservation.setStudent(new Student(this.studentId));
-        reservation.setRoom(new Room(this.roomId));
+        reservation.setStudent(this.studentDTO.toEntity());
+        reservation.setRoom(this.roomDTO.toEntity());
         reservation.setStatus(this.status);
+        reservation.setDate(this.date);
         return reservation;
     }
 }

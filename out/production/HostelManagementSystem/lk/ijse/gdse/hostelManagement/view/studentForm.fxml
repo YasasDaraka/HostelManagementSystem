@@ -17,12 +17,12 @@
    <children>
       <AnchorPane prefHeight="702.0" prefWidth="1054.0">
          <children>
-            <ImageView fitHeight="73.0" fitWidth="80.0" layoutX="974.0" layoutY="12.0" onMouseClicked="#navigateToHome" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="996.0" layoutY="8.0" onMouseClicked="#navigateToHome" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <image>
-                  <Image url="@assests/images/output.gif" />
+                  <Image url="@assests/images/closed.gif" />
                </image>
             </ImageView>
             <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="14.0" layoutY="12.0" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">

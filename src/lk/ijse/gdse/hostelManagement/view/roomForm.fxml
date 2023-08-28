@@ -25,12 +25,12 @@
                   <Font name="Arial Black" size="28.0" />
                </font>
             </Label>
-            <ImageView fitHeight="73.0" fitWidth="80.0" layoutX="974.0" layoutY="13.0" onMouseClicked="#navigateToHome" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="996.0" layoutY="9.0" onMouseClicked="#navigateToHome" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <image>
-                  <Image url="@assests/images/output.gif" />
+                  <Image url="@assests/images/closed.gif" />
                </image>
             </ImageView>
             <TextField fx:id="txtType" alignment="CENTER" focusTraversable="false" layoutX="370.0" layoutY="200.0" prefHeight="37.0" prefWidth="295.0" promptText="Room Type" style="-fx-background-color: DDE7E7; -fx-background-radius: 50;">

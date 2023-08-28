@@ -6,10 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -31,6 +28,20 @@ public class StudentFormController implements Initializable {
 
     @FXML
     public AnchorPane root;
+    @FXML
+    private TableView tblStudent;
+    @FXML
+    private TableColumn colStId;
+    @FXML
+    private TableColumn colStName;
+    @FXML
+    private TableColumn colGender;
+    @FXML
+    private TableColumn colAddress;
+    @FXML
+    private TableColumn colContact;
+    @FXML
+    private TableColumn colDob;
     @FXML
     private TextField txtId;
     @FXML
@@ -239,5 +250,14 @@ public class StudentFormController implements Initializable {
         cmbGender.setValue(null);
         datePick.setValue(null);
     }
+   /*private void search(){
+        tblRes.getItems().stream()
+                .filter(item -> item.getResId().equals(txtResId.getText()) )
+                .findAny()
+                .ifPresent(item -> {
+                    tblRes.getSelectionModel().select(item);
+                    tblRes.scrollTo(item);
+                });
 
+    }*/
 }

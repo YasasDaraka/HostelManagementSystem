@@ -10,7 +10,7 @@ import java.util.List;
 public interface CrudDAO<T,ID> extends SuperDAO{
      void setSession(Session session);
 
-     ID save(T object);
+     String save(T object);
 
      void update(T object);
 

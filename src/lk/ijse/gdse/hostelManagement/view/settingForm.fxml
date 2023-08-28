@@ -22,9 +22,9 @@
                         <Font name="Corbel" size="16.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="6.0" layoutY="8.0" opacity="0.7" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="8.0" layoutY="8.0" opacity="0.7" pickOnBounds="true">
                      <image>
-                        <Image url="@assests/images/menu_FILL0_wght400_GRAD0_opsz48.png" />
+                        <Image url="@assests/images/ez.gif" />
                      </image>
                   </ImageView>
                   <Button layoutX="809.0" layoutY="11.0" mnemonicParsing="false" onAction="#logout" prefHeight="19.0" prefWidth="65.0" style="-fx-background-color: #08A5C7;" text="Logout" textFill="WHITE" />
@@ -118,12 +118,12 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <ImageView fitHeight="68.0" fitWidth="75.0" layoutX="35.0" layoutY="199.0" onMouseClicked="#navigateToHome" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="37.0" layoutY="187.0" onMouseClicked="#navigateToHome" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <image>
-                  <Image url="@assests/images/output.gif" />
+                  <Image url="@assests/images/closed.gif" />
                </image>
             </ImageView>
             <JFXButton layoutX="418.0" layoutY="630.0" onAction="#changePassOnAction" prefHeight="27.0" prefWidth="221.0" style="-fx-background-color: #FFB3B3; -fx-background-radius: 50;" text="CHANGE PASSWORD" textFill="#a80000" />

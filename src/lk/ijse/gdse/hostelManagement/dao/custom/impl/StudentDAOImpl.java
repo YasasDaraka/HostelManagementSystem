@@ -4,9 +4,6 @@ import lk.ijse.gdse.hostelManagement.dao.custom.StudentDAO;
 import lk.ijse.gdse.hostelManagement.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 public class StudentDAOImpl implements StudentDAO<Student,String> {
@@ -52,5 +49,24 @@ public class StudentDAOImpl implements StudentDAO<Student,String> {
         session.close();
         return results;
 
+    }
+    @Override
+    public boolean checkStudentWithMiss(String id ,String resId) {
+        String hql = "SELECT COUNT(r) FROM Reservation r WHERE r.student.stId = :stId AND NOT (r.resId = :resId)";
+        Query<Long> query = session.createQuery(hql, Long.class);
+        query.setParameter("stId", id);
+        query.setParameter("resId", resId);
+        Long count = query.uniqueResult();
+        boolean exists = count > 0;
+        return exists;
+    }
+    @Override
+    public boolean checkStudent(String id) {
+        String hql = "SELECT COUNT(s) FROM Reservation s WHERE s.student.stId = :stId";
+        Query<Long> query = session.createQuery(hql, Long.class);
+        query.setParameter("stId", id);
+        Long count = query.uniqueResult();
+        boolean exists = count > 0;
+        return exists;
     }
 }

@@ -2,7 +2,6 @@ package lk.ijse.gdse.hostelManagement.entity;
 
 import lk.ijse.gdse.hostelManagement.dto.StudentDTO;
 import lombok.*;
-
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;

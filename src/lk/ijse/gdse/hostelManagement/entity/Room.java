@@ -1,7 +1,6 @@
 package lk.ijse.gdse.hostelManagement.entity;
 import lk.ijse.gdse.hostelManagement.dto.RoomDTO;
 import lombok.*;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -25,7 +24,7 @@ public class Room {
     private int qty;
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "room")
-    List<Reservation> reservationList;
+    private List<Reservation> reservationList;
 
     public Room(String roomId) {
         this.roomId=roomId;

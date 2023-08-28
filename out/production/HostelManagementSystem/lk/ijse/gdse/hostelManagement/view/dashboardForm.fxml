@@ -19,9 +19,9 @@
                         <Font name="Corbel" size="16.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="6.0" layoutY="8.0" opacity="0.7" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="6.0" layoutY="8.0" opacity="0.75" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@assests/images/menu_FILL0_wght400_GRAD0_opsz48.png" />
+                        <Image url="@assests/images/egif.gif" />
                      </image>
                   </ImageView>
                   <Label layoutX="45.0" layoutY="6.0" prefHeight="37.0" prefWidth="147.0" text="Dashboard" textFill="#026e6f">

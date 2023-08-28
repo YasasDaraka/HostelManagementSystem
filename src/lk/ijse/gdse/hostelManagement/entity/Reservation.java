@@ -1,7 +1,6 @@
 package lk.ijse.gdse.hostelManagement.entity;
 
 import lk.ijse.gdse.hostelManagement.dto.ReservationDTO;
-import lk.ijse.gdse.hostelManagement.dto.StudentDTO;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
@@ -26,11 +25,11 @@ public class Reservation {
     private Date date;
 
     @ManyToOne
-    @JoinColumn(name = "student_id")
+    @JoinColumn(name = "student_id",nullable = false)
     private Student student;
 
     @ManyToOne
-    @JoinColumn(name ="room_id")
+    @JoinColumn(name ="room_id",nullable = false)
     private Room room;
 
     @Column(name = "status")
@@ -39,9 +38,10 @@ public class Reservation {
     public ReservationDTO toDto() {
         ReservationDTO reservationDTO = new ReservationDTO();
         reservationDTO.setResId(this.resId);
-        reservationDTO.setStudentId(this.student.getStId());
-        reservationDTO.setRoomId(this.room.getRoomId());
+        reservationDTO.setStudentDTO(this.student.toDto());
+        reservationDTO.setRoomDTO(this.room.toDto());
         reservationDTO.setStatus(this.status);
+        reservationDTO.setDate(this.date);
         return reservationDTO;
     }
 }
