@@ -1,5 +1,7 @@
 package lk.ijse.gdse.hostelManagement.dto;
 
+import lk.ijse.gdse.hostelManagement.dto.tm.ReservationTM;
+import lk.ijse.gdse.hostelManagement.dto.tm.RoomTM;
 import lk.ijse.gdse.hostelManagement.entity.Room;
 import lk.ijse.gdse.hostelManagement.entity.Student;
 import lombok.*;
@@ -23,5 +25,13 @@ public class RoomDTO {
         room.setKeyMoney(this.keyMoney);
         room.setQty(this.qty);
         return room;
+    }
+    public RoomTM toTM() {
+        RoomTM roomTM = new RoomTM();
+        roomTM.setRoomId(this.roomId);
+        roomTM.setType(this.type);
+        roomTM.setKeyMoney(this.keyMoney);
+        roomTM.setQty(this.qty);
+        return roomTM;
     }
 }

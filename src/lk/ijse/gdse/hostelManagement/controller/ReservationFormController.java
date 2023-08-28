@@ -75,6 +75,7 @@ public class ReservationFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<String> data = FXCollections.observableArrayList ("PAID","UNPAID");
         cmbStatus.setItems (data);
+        root.requestFocus();
         setValueFactory();
         nextResId();
         loadRoomId();
@@ -86,7 +87,7 @@ public class ReservationFormController implements Initializable {
         loadAll();
         setSelectToTxt();
     }
-    public void setValueFactory() {
+    private void setValueFactory() {
         colResId.setCellValueFactory (new PropertyValueFactory<>("resId"));
         colStId.setCellValueFactory (new PropertyValueFactory<> ("stId"));
         colStName.setCellValueFactory (new PropertyValueFactory<> ("stName"));
@@ -213,8 +214,7 @@ public class ReservationFormController implements Initializable {
         }else{
             new Alert(Alert.AlertType.ERROR, "Please Fill Details!").show();
         }lblQty.setText(null);
-        loadAll();
-        setValueFactory();
+
     }
     private boolean checkReg(String resId,String roomId,String stid) {
         boolean room = reservationBO.checkRoom(resId,roomId);
@@ -303,8 +303,6 @@ public class ReservationFormController implements Initializable {
         }else{
             new Alert(Alert.AlertType.ERROR, "Please Fill Details!").show();
         }lblQty.setText(null);
-        loadAll();
-        setValueFactory();
     }
 
     @FXML
@@ -329,8 +327,6 @@ public class ReservationFormController implements Initializable {
         }else{
             new Alert(Alert.AlertType.ERROR, "Please Fill Details!").show();
         }lblQty.setText(null);
-        loadAll();
-        setValueFactory();
     }
 
     private void clear() {

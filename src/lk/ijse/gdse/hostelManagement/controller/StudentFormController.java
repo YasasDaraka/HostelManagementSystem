@@ -66,7 +66,7 @@ public class StudentFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<String> gen = FXCollections.observableArrayList("Male", "Female");
         cmbGender.setItems(gen);
-
+        root.requestFocus();
         loadAll();
         setValueFactory();
         setSelectToTxt();
@@ -84,7 +84,7 @@ public class StudentFormController implements Initializable {
             e.printStackTrace();
         }
     }
-    public void setValueFactory() {
+    private void setValueFactory() {
         colStId.setCellValueFactory (new PropertyValueFactory<>("stId"));
         colStName.setCellValueFactory (new PropertyValueFactory<> ("stName"));
         colAddress.setCellValueFactory (new PropertyValueFactory<> ("stAddress"));
@@ -126,6 +126,8 @@ public class StudentFormController implements Initializable {
                    boolean  isSaved = studentBO.saveStudent(studentDTO);
                    if(isSaved){
                        new Alert(Alert.AlertType.CONFIRMATION, "Student Register Succesfully!").show();
+                       loadAll();
+                       setValueFactory();
                    }else{
                        new Alert(Alert.AlertType.ERROR, "Student Not Saved!").show();
                    }
@@ -172,6 +174,8 @@ public class StudentFormController implements Initializable {
                     boolean  isUpdate = studentBO.updateStudent(studentDTO);
                     if(isUpdate){
                         new Alert(Alert.AlertType.CONFIRMATION, "Student Update Succesfully!").show();
+                        loadAll();
+                        setValueFactory();
                     }else{
                         new Alert(Alert.AlertType.ERROR, "Student Not Updated!").show();
                     }
@@ -194,6 +198,8 @@ public class StudentFormController implements Initializable {
                     if(isDelete){
                         new Alert(Alert.AlertType.CONFIRMATION, "Student Delete Succesfully!").show();
                         clear();
+                        loadAll();
+                        setValueFactory();
                     }else{
                         new Alert(Alert.AlertType.ERROR, "Student Not Deleted!").show();
                     }

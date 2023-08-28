@@ -99,7 +99,7 @@
                   <TableColumn fx:id="colGender" prefWidth="136.66668701171875" text="Gender" />
                   <TableColumn fx:id="colAddress" prefWidth="192.0" text="Address" />
                   <TableColumn fx:id="colContact" prefWidth="208.0" text="Contact No" />
-                  <TableColumn fx:id="colDob" prefWidth="164.33331298828125" text="Dath of Birth" />
+                  <TableColumn fx:id="colDob" prefWidth="157.0" text="Dath of Birth" />
                </columns>
             </TableView>
          </children>
