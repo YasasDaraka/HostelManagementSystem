@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -15,13 +16,18 @@ import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import lk.ijse.gdse.hostelManagement.bo.BOFactory;
 import lk.ijse.gdse.hostelManagement.bo.custom.StudentBO;
+import lk.ijse.gdse.hostelManagement.dto.ReservationDTO;
 import lk.ijse.gdse.hostelManagement.dto.StudentDTO;
+import lk.ijse.gdse.hostelManagement.dto.tm.ReservationTM;
+import lk.ijse.gdse.hostelManagement.dto.tm.StudentTM;
+
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class StudentFormController implements Initializable {
@@ -29,19 +35,19 @@ public class StudentFormController implements Initializable {
     @FXML
     public AnchorPane root;
     @FXML
-    private TableView tblStudent;
+    private TableView <StudentTM> tblStudent;
     @FXML
-    private TableColumn colStId;
+    private TableColumn <StudentTM,String> colStId;
     @FXML
-    private TableColumn colStName;
+    private TableColumn <StudentTM,String> colStName;
     @FXML
-    private TableColumn colGender;
+    private TableColumn <StudentTM,String> colGender;
     @FXML
-    private TableColumn colAddress;
+    private TableColumn <StudentTM,String> colAddress;
     @FXML
-    private TableColumn colContact;
+    private TableColumn <StudentTM,String> colContact;
     @FXML
-    private TableColumn colDob;
+    private TableColumn <StudentTM,String> colDob;
     @FXML
     private TextField txtId;
     @FXML
@@ -60,6 +66,48 @@ public class StudentFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<String> gen = FXCollections.observableArrayList("Male", "Female");
         cmbGender.setItems(gen);
+
+        loadAll();
+        setValueFactory();
+        setSelectToTxt();
+    }
+
+    private void loadAll() {
+        try {
+            List<StudentDTO> all = studentBO.loadAll ();
+            ObservableList<StudentTM> resList = FXCollections.observableArrayList ();
+            for (StudentDTO dto : all) {
+                resList.add (dto.toTM());
+            }
+            tblStudent.setItems (resList);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void setValueFactory() {
+        colStId.setCellValueFactory (new PropertyValueFactory<>("stId"));
+        colStName.setCellValueFactory (new PropertyValueFactory<> ("stName"));
+        colAddress.setCellValueFactory (new PropertyValueFactory<> ("stAddress"));
+        colContact.setCellValueFactory (new PropertyValueFactory<> ("stContact"));
+        colDob.setCellValueFactory (new PropertyValueFactory<> ("dob"));
+        colGender.setCellValueFactory (new PropertyValueFactory<> ("gender"));
+
+    }
+    private void setSelectToTxt() {
+        tblStudent.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                txtId.setText(newSelection.getStId());
+                txtname.setText(newSelection.getStName());
+                txtAddress.setText(newSelection.getStAddress());
+                txtContact.setText(newSelection.getStContact());
+                Date date = newSelection.getDob();
+                java.util.Date utilDate = new java.util.Date(date.getTime());
+                LocalDate localDate = utilDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                datePick.setValue(localDate);
+                cmbGender.setValue(newSelection.getGender());
+
+            }
+        });
     }
     @FXML
     private void btnSaveOnAction(ActionEvent actionEvent) throws Exception {
@@ -164,6 +212,7 @@ public class StudentFormController implements Initializable {
         if(!txtId.getText().isEmpty()) {
             StudentDTO st= studentBO.getStudent(id);
             if(st != null) {
+                search();
                 txtId.setText(st.getStId());
                 txtname.setText(st.getStName());
                 txtAddress.setText(st.getStAddress());
@@ -228,6 +277,7 @@ public class StudentFormController implements Initializable {
         if(!txtId.getText().isEmpty()) {
             StudentDTO st= studentBO.getStudent(id);
             if(st != null) {
+                search();
                 txtId.setText(st.getStId());
                 txtname.setText(st.getStName());
                 txtAddress.setText(st.getStAddress());
@@ -243,21 +293,29 @@ public class StudentFormController implements Initializable {
     }
 
     private void clear(){
-        txtId.clear();
-        txtname.clear();
-        txtAddress.clear();
-        txtContact.clear();
-        cmbGender.setValue(null);
-        datePick.setValue(null);
+        try {
+            txtId.clear();
+            txtname.clear();
+            txtAddress.clear();
+            txtContact.clear();
+            cmbGender.setValue(null);
+            datePick.setValue(null);
+            loadAll();
+            setValueFactory();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
-   /*private void search(){
-        tblRes.getItems().stream()
-                .filter(item -> item.getResId().equals(txtResId.getText()) )
+
+   private void search(){
+        tblStudent.getItems().stream()
+                .filter(item -> item.getStId().equals(txtId.getText()) )
                 .findAny()
                 .ifPresent(item -> {
-                    tblRes.getSelectionModel().select(item);
-                    tblRes.scrollTo(item);
+                    tblStudent.getSelectionModel().select(item);
+                    tblStudent.scrollTo(item);
                 });
 
-    }*/
+    }
 }

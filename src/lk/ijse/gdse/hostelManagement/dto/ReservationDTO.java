@@ -1,4 +1,5 @@
 package lk.ijse.gdse.hostelManagement.dto;
+import lk.ijse.gdse.hostelManagement.dto.tm.ReservationTM;
 import lk.ijse.gdse.hostelManagement.entity.Reservation;
 import lk.ijse.gdse.hostelManagement.entity.Room;
 import lk.ijse.gdse.hostelManagement.entity.Student;
@@ -27,6 +28,17 @@ public class ReservationDTO {
         reservation.setRoom(this.roomDTO.toEntity());
         reservation.setStatus(this.status);
         reservation.setDate(this.date);
+        return reservation;
+    }
+
+    public ReservationTM toTM() {
+        ReservationTM reservation = new ReservationTM();
+        reservation.setResId(this.resId);
+        reservation.setStId(this.studentDTO.getStId());
+        reservation.setStName(this.studentDTO.getStName());
+        reservation.setRoomId(this.roomDTO.getRoomId());
+        reservation.setRoomType(this.roomDTO.getType());
+        reservation.setStatus(this.status);
         return reservation;
     }
 }

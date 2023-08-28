@@ -94,12 +94,12 @@
             <DatePicker fx:id="datePick" layoutX="238.0" layoutY="380.0" prefHeight="37.0" prefWidth="191.0" promptText="              Date of birth" style="-fx-background-radius: 50; -fx-background-color: DDE7E7;" />
             <TableView fx:id="tblStudent" layoutX="20.0" layoutY="450.0" prefHeight="234.0" prefWidth="1010.0" style="-fx-background-color: #ebf2ed;">
                <columns>
-                  <TableColumn fx:id="colstId" prefWidth="125.33332824707031" text="Student ID" />
+                  <TableColumn fx:id="colStId" prefWidth="125.33332824707031" text="Student ID" />
                   <TableColumn fx:id="colStName" prefWidth="188.66665649414062" text="Student Name" />
-                  <TableColumn fx:id="colAddress" prefWidth="136.66668701171875" text="Gender" />
-                  <TableColumn fx:id="colContact" prefWidth="192.0" text="Address" />
-                  <TableColumn fx:id="colDob" prefWidth="208.0" text="Contact No" />
-                  <TableColumn fx:id="colGender" prefWidth="164.33331298828125" text="Dath of Birth" />
+                  <TableColumn fx:id="colGender" prefWidth="136.66668701171875" text="Gender" />
+                  <TableColumn fx:id="colAddress" prefWidth="192.0" text="Address" />
+                  <TableColumn fx:id="colContact" prefWidth="208.0" text="Contact No" />
+                  <TableColumn fx:id="colDob" prefWidth="164.33331298828125" text="Dath of Birth" />
                </columns>
             </TableView>
          </children>

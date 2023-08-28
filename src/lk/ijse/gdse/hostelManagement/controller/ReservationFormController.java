@@ -110,30 +110,15 @@ public class ReservationFormController implements Initializable {
     }
 
     private void loadAll() {
-
         try {
             List<ReservationDTO> all = reservationBO.loadAll ();
-
             ObservableList<ReservationTM> resList = FXCollections.observableArrayList ();
-
             for (ReservationDTO dto : all) {
-                resList.add (new ReservationTM (
-                        dto.getResId (),
-                        dto.getStudentDTO ().getStId (),
-                        dto.getStudentDTO ().getStName (),
-                        dto.getRoomDTO ().getRoomId (),
-                        dto.getRoomDTO ().getType (),
-                        dto.getStatus ()
-                ));
+                resList.add (dto.toTM());
             }
-
             tblRes.setItems (resList);
-
-            System.out.println (resList);
-
-
         } catch (Exception e) {
-            System.out.println (e);
+            e.printStackTrace();
         }
     }
 
@@ -357,8 +342,10 @@ public class ReservationFormController implements Initializable {
             lblQty.setText(null);
             lblRoomType.setText(null);
             lblStudentName.setText(null);
+            loadAll();
+            setValueFactory();
         }catch (Exception e){
-            System.out.println("Clear");
+            e.printStackTrace();
         }
 
     }
@@ -436,7 +423,6 @@ public class ReservationFormController implements Initializable {
                     tblRes.getSelectionModel().select(item);
                     tblRes.scrollTo(item);
                 });
-
     }
 
     @FXML

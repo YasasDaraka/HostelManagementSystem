@@ -342,13 +342,9 @@ public class ReservationBOImpl implements ReservationBO {
         reservationDAO.setSession (session);
         List<Reservation>list= reservationDAO. loadAll ();
         List<ReservationDTO>resList= new ArrayList<>();
-        System.out.println ("Check1");
-
         for (Reservation res :list) {
             resList.add(res.toDto());
         }
-
-        System.out.println ("Check2");
         return resList;
     }
 

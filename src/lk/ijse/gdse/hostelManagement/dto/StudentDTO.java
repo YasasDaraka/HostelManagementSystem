@@ -1,4 +1,5 @@
 package lk.ijse.gdse.hostelManagement.dto;
+import lk.ijse.gdse.hostelManagement.dto.tm.StudentTM;
 import lk.ijse.gdse.hostelManagement.entity.Student;
 import lombok.*;
 import java.util.Date;
@@ -26,5 +27,16 @@ public class StudentDTO {
         student.setDob(this.dob);
         student.setGender(this.gender);
         return student;
+    }
+
+    public StudentTM toTM() {
+        StudentTM studentTM = new StudentTM();
+        studentTM.setStId(this.stId);
+        studentTM.setStName(this.stName);
+        studentTM.setStAddress(this.stAddress);
+        studentTM.setStContact(this.stContact);
+        studentTM.setDob(this.dob);
+        studentTM.setGender(this.gender);
+        return studentTM;
     }
 }
