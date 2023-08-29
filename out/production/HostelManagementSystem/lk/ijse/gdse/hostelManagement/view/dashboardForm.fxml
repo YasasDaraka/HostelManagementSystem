@@ -127,42 +127,52 @@
                      </font>
                   </Label>
                </children></Pane>
-            <ImageView fx:id="imgSetting" fitHeight="142.0" fitWidth="147.0" layoutX="819.0" layoutY="369.0" onMouseClicked="#settingMange" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgSetting" fitHeight="142.0" fitWidth="147.0" layoutX="860.0" layoutY="369.0" onMouseClicked="#settingMange" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assests/images/Setting.gif" />
                </image>
             </ImageView>
-            <ImageView fx:id="imgStudent" fitHeight="142.0" fitWidth="147.0" layoutX="103.0" layoutY="362.0" onMouseClicked="#studentManage" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgStudent" fitHeight="150.0" fitWidth="153.0" layoutX="61.0" layoutY="367.0" onMouseClicked="#studentManage" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assests/images/good-review.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="imgRoom" fitHeight="142.0" fitWidth="145.0" layoutX="342.0" layoutY="367.0" onMouseClicked="#roomMange" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgRoom" fitHeight="156.0" fitWidth="162.0" layoutX="236.0" layoutY="366.0" onMouseClicked="#roomMange" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true">
                <image>
                   <Image url="@assests/images/3d-house.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="imgReservation" fitHeight="142.0" fitWidth="147.0" layoutX="592.0" layoutY="369.0" onMouseClicked="#reservationMange" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgReservation" fitHeight="142.0" fitWidth="147.0" layoutX="462.0" layoutY="369.0" onMouseClicked="#reservationMange" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assests/images/open-enrollment.png" />
                </image>
             </ImageView>
-            <Label layoutX="101.0" layoutY="519.0" opacity="0.75" prefHeight="37.0" prefWidth="113.0" text="Student " textAlignment="CENTER" textFill="#424b4f">
+            <Label layoutX="61.0" layoutY="527.0" opacity="0.75" prefHeight="37.0" prefWidth="113.0" text="Student " textAlignment="CENTER" textFill="#424b4f">
                <font>
                   <Font name="Arial Black" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="373.0" layoutY="520.0" opacity="0.75" prefHeight="37.0" prefWidth="87.0" text="Room" textAlignment="CENTER" textFill="#424b4f">
+            <Label layoutX="278.0" layoutY="526.0" opacity="0.75" prefHeight="37.0" prefWidth="87.0" text="Room" textAlignment="CENTER" textFill="#424b4f">
                <font>
                   <Font name="Arial Black" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="561.0" layoutY="522.0" opacity="0.75" prefHeight="37.0" prefWidth="173.0" text="Reservations" textAlignment="CENTER" textFill="#424b4f">
+            <Label layoutX="431.0" layoutY="528.0" opacity="0.75" prefHeight="37.0" prefWidth="173.0" text="Reservations" textAlignment="CENTER" textFill="#424b4f">
                <font>
                   <Font name="Arial Black" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="836.0" layoutY="522.0" opacity="0.75" prefHeight="37.0" prefWidth="113.0" text="Settings" textAlignment="CENTER" textFill="#424b4f">
+            <Label layoutX="877.0" layoutY="528.0" opacity="0.75" prefHeight="37.0" prefWidth="113.0" text="Settings" textAlignment="CENTER" textFill="#424b4f">
+               <font>
+                  <Font name="Arial Black" size="24.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="imgPayments" fitHeight="208.0" fitWidth="247.0" layoutX="612.0" layoutY="343.0" onMouseClicked="#PaymentsMange" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true">
+               <image>
+                  <Image url="@assests/images/resetCardgif.gif" />
+               </image>
+            </ImageView>
+            <Label layoutX="669.0" layoutY="528.0" opacity="0.75" prefHeight="37.0" prefWidth="138.0" text="Payments" textAlignment="CENTER" textFill="#424b4f">
                <font>
                   <Font name="Arial Black" size="24.0" />
                </font>

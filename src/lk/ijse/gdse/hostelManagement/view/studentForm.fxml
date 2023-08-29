@@ -56,11 +56,12 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </TextField>
-            <JFXButton layoutX="577.0" layoutY="101.0" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #99b6d3; -fx-background-radius: 50;" text="Save" />
-            <JFXButton layoutX="577.0" layoutY="175.0" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #8FB280; -fx-background-radius: 50;" text="Update" />
-            <JFXButton layoutX="577.0" layoutY="245.0" onAction="#btnDeleteOnAction" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #FFB3B3; -fx-background-radius: 50;" text="Delete" textFill="#a80000" />
-            <JFXButton layoutX="577.0" layoutY="313.0" onAction="#btnSearchOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #95A9B0; -fx-background-radius: 50;" text="Search" />
-            <JFXButton layoutX="577.0" layoutY="381.0" onAction="#btnClearOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #99b6d3; -fx-background-radius: 50;" text="Clear" />
+            <JFXButton layoutX="575.0" layoutY="103.0" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #99b6d3; -fx-background-radius: 50;" text="Save" />
+            <JFXButton layoutX="575.0" layoutY="156.0" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #8FB280; -fx-background-radius: 50;" text="Update" />
+            <JFXButton layoutX="575.0" layoutY="209.0" onAction="#btnDeleteOnAction" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #FFB3B3; -fx-background-radius: 50;" text="Delete" textFill="#a80000" />
+            <JFXButton layoutX="575.0" layoutY="263.0" onAction="#btnSearchOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #95A9B0; -fx-background-radius: 50;" text="Search" />
+            <JFXButton fx:id="btnCapture" layoutX="575.0" layoutY="370.0" onAction="#onCapture" prefHeight="25.0" prefWidth="89.0" ripplerFill="#4a4a4a" style="-fx-background-color: #158392; -fx-background-radius: 50;" text="Open Camera" textFill="WHITE" />
+            <JFXButton layoutX="575.0" layoutY="317.0" onAction="#btnClearOnAction" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #99b6d3; -fx-background-radius: 50;" text="Clear" />
             <Label layoutX="95.0" layoutY="154.0" prefHeight="17.0" prefWidth="124.0" text="Name" textFill="#6892bc">
                <font>
                   <Font name="System Bold" size="14.0" />
@@ -102,6 +103,7 @@
                   <TableColumn fx:id="colDob" prefWidth="157.0" text="Dath of Birth" />
                </columns>
             </TableView>
+            <ImageView fx:id="panePhoto" fitHeight="227.0" fitWidth="296.0" layoutX="713.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
    </children>

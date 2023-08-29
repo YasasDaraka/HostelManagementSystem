@@ -26,6 +26,8 @@ public class DashboardFormController implements Initializable {
     @FXML
     public AnchorPane root;
     @FXML
+    private ImageView imgPayments;
+    @FXML
     private Label date;
     @FXML
     private Label time;
@@ -72,6 +74,10 @@ public class DashboardFormController implements Initializable {
         Navigation.navigate(Routes.SETTING,root);
 
     }
+    @FXML
+    private void PaymentsMange(MouseEvent mouseEvent) throws IOException {
+        Navigation.navigate(Routes.PAYMENTS,root);
+    }
 
     @FXML
     private void playMouseEnterAnimation(MouseEvent event) {
@@ -94,6 +100,10 @@ public class DashboardFormController implements Initializable {
                 case "imgSetting":
                     lblMenu.setText("Manage Settings");
                     lblDescription.setText("Click here if you want to manage settings");
+                    break;
+                case "imgPayments":
+                    lblMenu.setText("View Payments");
+                    lblDescription.setText("Click here if you want to view Payment Details");
                     break;
             }
 
@@ -129,7 +139,7 @@ public class DashboardFormController implements Initializable {
     private void setDate() {
         date.setText(String.valueOf(LocalDate.now()));
     }
-    
+
     @FXML
     private void setTime() {
         Timeline timeline = new Timeline(new KeyFrame(Duration.ZERO, e ->{
@@ -139,4 +149,5 @@ public class DashboardFormController implements Initializable {
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
     }
+
 }

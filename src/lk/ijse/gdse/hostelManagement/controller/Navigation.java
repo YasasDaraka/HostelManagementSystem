@@ -36,6 +36,10 @@ public class Navigation {
                 window.setTitle ("Settings Manage");
                 iniUi("settingForm.fxml");
                 break;
+            case PAYMENTS:
+                window.setTitle ("view Payments");
+                iniUi("paymentForm.fxml");
+                break;
             default:
                 System.out.println ("Fxml Not Loading");
         }

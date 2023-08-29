@@ -1,26 +1,37 @@
 package lk.ijse.gdse.hostelManagement.controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.animation.ScaleTransition;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
 import javafx.util.Duration;
 import lk.ijse.gdse.hostelManagement.bo.BOFactory;
 import lk.ijse.gdse.hostelManagement.bo.custom.StudentBO;
-import lk.ijse.gdse.hostelManagement.dto.ReservationDTO;
 import lk.ijse.gdse.hostelManagement.dto.StudentDTO;
-import lk.ijse.gdse.hostelManagement.dto.tm.ReservationTM;
 import lk.ijse.gdse.hostelManagement.dto.tm.StudentTM;
+import org.bytedeco.javacv.Frame;
+import org.bytedeco.javacv.FrameGrabber;
+import org.bytedeco.javacv.Java2DFrameConverter;
+import org.bytedeco.javacv.VideoInputFrameGrabber;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -30,7 +41,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class StudentFormController implements Initializable {
+public class StudentFormController implements Initializable ,Runnable{
 
     @FXML
     public AnchorPane root;
@@ -61,6 +72,19 @@ public class StudentFormController implements Initializable {
     @FXML
     private DatePicker datePick;
 
+    @FXML
+    private ImageView panePhoto;
+
+    @FXML
+    private JFXButton btnCapture;
+
+    private volatile boolean isCapturing;
+    private Boolean isCameraEnabled = true;
+    private FrameGrabber grabber;
+    private Java2DFrameConverter converter;
+
+    private FileChooser fileChooser = new FileChooser();
+
     StudentBO studentBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.STUDENT);
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -70,8 +94,56 @@ public class StudentFormController implements Initializable {
         loadAll();
         setValueFactory();
         setSelectToTxt();
-    }
 
+        try {
+            grabber = new VideoInputFrameGrabber(0);
+            converter = new Java2DFrameConverter();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    @FXML
+    void onCapture(ActionEvent event) {
+        if (!isCapturing) {
+            isCapturing = true;
+            Thread captureThread = new Thread(this);
+            captureThread.start();
+            btnCapture.setText("Take Picture");
+            btnCapture.setStyle("-fx-background-color: #c93329;" +
+                    "-fx-background-radius: 50;");
+        } else {
+            isCapturing = false;
+            btnCapture.setText("Open Camera");
+            btnCapture.setStyle("-fx-background-color: #158392;" +
+                    "-fx-background-radius: 50;");
+        }
+    }
+    @Override
+    public void run() {
+        try {
+            grabber.start();
+            while (isCapturing) {
+                Frame frame = grabber.grab();
+                BufferedImage bufferedImage = converter.getBufferedImage(frame);
+                Image fxImage = convertToJavaFXImage(bufferedImage);
+
+                Platform.runLater(() -> panePhoto.setImage(fxImage));
+            }
+            grabber.stop();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    private Image convertToJavaFXImage(BufferedImage bufferedImage) {
+        try {
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            ImageIO.write(bufferedImage, "png", outputStream);
+            return new Image(new ByteArrayInputStream(outputStream.toByteArray()));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
     private void loadAll() {
         try {
             List<StudentDTO> all = studentBO.loadAll ();
