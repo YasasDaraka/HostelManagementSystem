@@ -1,8 +1,6 @@
 package lk.ijse.gdse.hostelManagement.projection;
 
 import lk.ijse.gdse.hostelManagement.dto.ReservationProDTO;
-import lk.ijse.gdse.hostelManagement.dto.tm.ReservationProTM;
-import lk.ijse.gdse.hostelManagement.dto.tm.ReservationTM;
 import lombok.*;
 
 @NoArgsConstructor

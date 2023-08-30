@@ -1,8 +1,6 @@
 package lk.ijse.gdse.hostelManagement.dto;
 import lk.ijse.gdse.hostelManagement.dto.tm.ReservationTM;
 import lk.ijse.gdse.hostelManagement.entity.Reservation;
-import lk.ijse.gdse.hostelManagement.entity.Room;
-import lk.ijse.gdse.hostelManagement.entity.Student;
 import lombok.*;
 
 import java.util.Date;

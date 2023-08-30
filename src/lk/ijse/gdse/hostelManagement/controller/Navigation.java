@@ -3,7 +3,6 @@ package lk.ijse.gdse.hostelManagement.controller;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class Navigation {
@@ -39,6 +38,18 @@ public class Navigation {
             case PAYMENTS:
                 window.setTitle ("View Payments");
                 iniUi("paymentForm.fxml");
+                break;
+            case CREATE_USER:
+                window.setTitle ("User Sign In");
+                iniUi("createUserAccForm.fxml");
+                break;
+            case ADMIN:
+                window.setTitle ("Admin LogIn");
+                iniUi("adminForm.fxml");
+                break;
+            case LOGIN:
+                window.setTitle ("Log In");
+                iniUi("loginForm.fxml");
                 break;
             default:
                 System.out.println ("Fxml Not Loading");

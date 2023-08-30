@@ -21,7 +21,6 @@ import lk.ijse.gdse.hostelManagement.bo.BOFactory;
 import lk.ijse.gdse.hostelManagement.bo.custom.RoomBO;
 import lk.ijse.gdse.hostelManagement.dto.RoomDTO;
 import lk.ijse.gdse.hostelManagement.dto.tm.RoomTM;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;

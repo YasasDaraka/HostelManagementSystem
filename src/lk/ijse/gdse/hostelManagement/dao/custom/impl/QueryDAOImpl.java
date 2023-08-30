@@ -3,7 +3,6 @@ package lk.ijse.gdse.hostelManagement.dao.custom.impl;
 import lk.ijse.gdse.hostelManagement.dao.custom.QueryDAO;
 import lk.ijse.gdse.hostelManagement.projection.ReservationProjection;
 import org.hibernate.Session;
-
 import javax.persistence.NoResultException;
 import java.util.List;
 

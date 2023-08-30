@@ -3,6 +3,7 @@ package lk.ijse.gdse.hostelManagement.config;
 import lk.ijse.gdse.hostelManagement.entity.Reservation;
 import lk.ijse.gdse.hostelManagement.entity.Room;
 import lk.ijse.gdse.hostelManagement.entity.Student;
+import lk.ijse.gdse.hostelManagement.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
@@ -17,6 +18,7 @@ public class SessionFactoryConfig {
                 .addAnnotatedClass(Student.class)
                 .addAnnotatedClass(Room.class)
                 .addAnnotatedClass(Reservation.class)
+                .addAnnotatedClass(User.class)
                 .getMetadataBuilder()
                 .applyImplicitNamingStrategy(ImplicitNamingStrategyJpaCompliantImpl.INSTANCE)
                 .build().buildSessionFactory();

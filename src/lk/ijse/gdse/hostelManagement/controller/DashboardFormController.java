@@ -14,7 +14,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
-
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -150,4 +149,8 @@ public class DashboardFormController implements Initializable {
         timeline.play();
     }
 
+    @FXML
+    private void logOutOnAction(MouseEvent mouseEvent) throws IOException {
+        Navigation.navigate(Routes.LOGIN,root);
+    }
 }

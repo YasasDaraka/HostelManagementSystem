@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.hostelManagement.controller.CreateUserAccFormController">
+   <children>
+      <AnchorPane prefHeight="702.0" prefWidth="1054.0">
+         <children>
+            <Pane prefHeight="48.0" prefWidth="1054.0" style="-fx-background-color: #EBEDEF;">
+               <children>
+                  <Label layoutX="49.0" layoutY="8.0" opacity="0.7" prefHeight="33.0" prefWidth="193.0" text="Hostel management system">
+                     <font>
+                        <Font name="Corbel" size="16.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="8.0" layoutY="8.0" opacity="0.7" pickOnBounds="true">
+                     <image>
+                        <Image url="@assests/images/ez.gif" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="1007.0" layoutY="8.0" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" opacity="0.7" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assests/images/output-onlinegiftools.gif" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="33.0" layoutX="885.0" layoutY="7.0" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assests/images/user.gif" />
+               </image>
+            </ImageView>
+            <Pane layoutX="32.0" layoutY="182.0" prefHeight="436.0" prefWidth="991.0" style="-fx-background-color: DDE7E7; -fx-background-radius: 25;" />
+            <Label layoutX="434.0" layoutY="96.0" opacity="0.75" prefHeight="44.0" prefWidth="290.0" text="Welcome Admin" textFill="#195372">
+               <font>
+                  <Font name="Arial Black" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="925.0" layoutY="11.0" prefHeight="25.0" prefWidth="89.0" text="Administrator" />
+            <ImageView fx:id="imgSetting" fitHeight="92.0" fitWidth="85.0" layoutX="335.0" layoutY="73.0" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assests/images/Setting.gif" />
+               </image>
+            </ImageView>
+            <JFXButton layoutX="417.0" layoutY="553.0" onAction="#createOnAction" prefHeight="27.0" prefWidth="221.0" style="-fx-background-color: #99b6d3; -fx-background-radius: 50;" text="Create Account" />
+            <TextField fx:id="txtName" alignment="CENTER" focusTraversable="false" layoutX="454.0" layoutY="294.0" prefHeight="37.0" prefWidth="295.0" promptText="Name" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtId" alignment="CENTER" focusTraversable="false" layoutX="454.0" layoutY="232.0" prefHeight="37.0" prefWidth="295.0" promptText="User ID" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtMail" alignment="CENTER" focusTraversable="false" layoutX="454.0" layoutY="355.0" prefHeight="37.0" prefWidth="295.0" promptText="Email" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </TextField>
+            <Label layoutX="312.0" layoutY="299.0" prefHeight="17.0" prefWidth="124.0" text="Name" textFill="#6892bc">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="312.0" layoutY="237.0" prefHeight="17.0" prefWidth="124.0" text="User ID" textFill="#6892bc">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="312.0" layoutY="362.0" prefHeight="17.0" prefWidth="124.0" text="Email" textFill="#6892bc">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="311.0" layoutY="420.0" prefHeight="17.0" prefWidth="124.0" text="Password" textFill="#6892bc">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="311.0" layoutY="480.0" prefHeight="17.0" prefWidth="124.0" text="Re-Password" textFill="#6892bc">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="37.0" layoutY="187.0" onMouseClicked="#navigateToHome" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <image>
+                  <Image url="@assests/images/closed.gif" />
+               </image>
+            </ImageView>
+            <PasswordField fx:id="txtRePass" alignment="CENTER" layoutX="454.0" layoutY="474.0" prefHeight="37.0" prefWidth="296.0" promptText="Re-Password" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </PasswordField>
+            <PasswordField fx:id="txtPassword" alignment="CENTER" layoutX="453.0" layoutY="414.0" prefHeight="37.0" prefWidth="296.0" promptText="Password" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </PasswordField>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

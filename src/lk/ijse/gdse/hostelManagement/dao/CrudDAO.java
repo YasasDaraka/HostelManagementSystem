@@ -1,10 +1,6 @@
 package lk.ijse.gdse.hostelManagement.dao;
 
-import lk.ijse.gdse.hostelManagement.entity.Student;
 import org.hibernate.Session;
-import org.hibernate.query.Query;
-
-import java.sql.SQLException;
 import java.util.List;
 
 public interface CrudDAO<T,ID> extends SuperDAO{

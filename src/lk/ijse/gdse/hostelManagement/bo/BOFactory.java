@@ -1,9 +1,6 @@
 package lk.ijse.gdse.hostelManagement.bo;
 
-import lk.ijse.gdse.hostelManagement.bo.custom.impl.ReservationBOImpl;
-import lk.ijse.gdse.hostelManagement.bo.custom.impl.ReservtionInfoBOImpl;
-import lk.ijse.gdse.hostelManagement.bo.custom.impl.RoomBOImpl;
-import lk.ijse.gdse.hostelManagement.bo.custom.impl.StudentBOImpl;
+import lk.ijse.gdse.hostelManagement.bo.custom.impl.*;
 
 public class BOFactory {
     private static BOFactory boFactory;
@@ -15,7 +12,7 @@ public class BOFactory {
     }
 
     public enum BOTypes{
-        STUDENT,ROOM,RESERVATION,RESERVATION_INFO
+        STUDENT,ROOM,RESERVATION,RESERVATION_INFO,USER
     }
 
     public <T extends SuperBO> T getBO(BOTypes boTypes){
@@ -28,6 +25,8 @@ public class BOFactory {
                 return (T) new ReservationBOImpl();
             case RESERVATION_INFO:
                 return (T) new ReservtionInfoBOImpl();
+            case USER:
+                return (T) new UserBOImpl();
             default:
                 return null;
         }

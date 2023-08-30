@@ -19,7 +19,7 @@
                         <Font name="Corbel" size="16.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="6.0" layoutY="8.0" opacity="0.75" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="6.0" layoutY="8.0" onMouseClicked="#logOutOnAction" opacity="0.75" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@assests/images/egif.gif" />
                      </image>
@@ -29,7 +29,7 @@
                         <Font name="Arial Black" size="24.0" />
                      </font>
                   </Label>
-                  <Button layoutX="809.0" layoutY="11.0" mnemonicParsing="false" onAction="#logout" prefHeight="19.0" prefWidth="65.0" style="-fx-background-color: #08A5C7;" text="Logout" textFill="WHITE" />
+                  <Button layoutX="809.0" layoutY="11.0" mnemonicParsing="false" onAction="#logout" onMouseClicked="#logOutOnAction" prefHeight="19.0" prefWidth="65.0" style="-fx-background-color: #08A5C7;" text="Logout" textFill="WHITE" />
                </children>
             </Pane>
             <Label layoutX="31.0" layoutY="57.0" prefHeight="41.0" prefWidth="358.0" text="Welcome, Administrator !">

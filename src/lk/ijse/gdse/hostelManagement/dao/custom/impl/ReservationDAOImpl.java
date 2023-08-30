@@ -4,7 +4,6 @@ import lk.ijse.gdse.hostelManagement.dao.custom.ReservationDAO;
 import lk.ijse.gdse.hostelManagement.entity.Reservation;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
-
 import java.util.List;
 
 public class ReservationDAOImpl implements ReservationDAO<Reservation,String> {

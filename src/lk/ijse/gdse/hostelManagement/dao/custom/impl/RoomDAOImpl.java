@@ -4,7 +4,6 @@ import lk.ijse.gdse.hostelManagement.dao.custom.RoomDAO;
 import lk.ijse.gdse.hostelManagement.entity.Room;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
-
 import java.util.List;
 
 public class RoomDAOImpl implements RoomDAO<Room,String> {
