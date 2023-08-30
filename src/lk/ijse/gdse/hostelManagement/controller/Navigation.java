@@ -1,6 +1,8 @@
 package lk.ijse.gdse.hostelManagement.controller;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -40,12 +42,24 @@ public class Navigation {
                 iniUi("paymentForm.fxml");
                 break;
             case CREATE_USER:
-                window.setTitle ("User Sign In");
-                iniUi("createUserAccForm.fxml");
+                Stage stage = new Stage();
+                stage.setScene(new Scene(FXMLLoader.load(Navigation.class.getResource("/lk/ijse/gdse/hostelManagement/view/createUserAccForm.fxml"))));
+                stage.setTitle ("User Sign In");
+                stage.show();
+
+                Stage stage2 = (Stage) anchorPane.getScene().getWindow();
+                stage2.close();
                 break;
             case ADMIN:
-                window.setTitle ("Admin LogIn");
-                iniUi("adminForm.fxml");
+                FXMLLoader fxmlLoader=new FXMLLoader(Navigation.class.getResource("/lk/ijse/gdse/hostelManagement/view/adminForm.fxml"));
+                Parent parent=fxmlLoader.load();
+                Stage stage3=new Stage();
+                stage3.setScene(new Scene(parent));
+                stage3.setTitle ("Admin LogIn");
+                stage3.show();
+
+                Stage stage4 = (Stage) anchorPane.getScene().getWindow();
+                stage4.close();
                 break;
             case LOGIN:
                 window.setTitle ("Log In");
