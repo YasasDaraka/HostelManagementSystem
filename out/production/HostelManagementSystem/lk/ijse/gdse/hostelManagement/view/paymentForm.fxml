@@ -20,12 +20,12 @@
                   <Font name="Arial Black" size="20.0" />
                </font>
             </Label>
-            <ImageView fitHeight="89.0" fitWidth="106.0" layoutX="14.0" layoutY="9.0" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgMoney" fitHeight="81.0" fitWidth="77.0" layoutX="14.0" layoutY="9.0" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assests/images/money.png" />
                </image>
             </ImageView>
-            <Label layoutX="118.0" layoutY="17.0" opacity="0.75" prefHeight="42.0" prefWidth="255.0" text="Payment Details" textAlignment="CENTER" textFill="#195372">
+            <Label fx:id="lblPayment" layoutX="105.0" layoutY="6.0" opacity="0.75" prefHeight="42.0" prefWidth="255.0" text="Payment Details" textAlignment="CENTER" textFill="#195372">
                <font>
                   <Font name="Arial Black" size="28.0" />
                </font>
@@ -50,17 +50,144 @@
                   <TableColumn fx:id="colStId" prefWidth="118.0" text="Student ID" />
                   <TableColumn fx:id="colStName" prefWidth="109.33334350585938" text="Student Name" />
                   <TableColumn fx:id="colAddress" prefWidth="127.33334350585938" text="Address" />
-                  <TableColumn fx:id="colContact" prefWidth="127.66665649414062" text="contact" />
+                  <TableColumn fx:id="colContact" prefWidth="127.66665649414062" text="Contact No" />
                   <TableColumn fx:id="colRmId" prefWidth="119.3333740234375" text="Room ID" />
                   <TableColumn fx:id="colRmType" prefWidth="105.6666259765625" text="Room Type" />
                   <TableColumn fx:id="colMoney" prefWidth="108.0" text="Key Money" />
                   <TableColumn fx:id="colStatus" prefWidth="103.0" text="Status" />
                </columns>
             </TableView>
-            <JFXButton layoutX="372.0" layoutY="393.0" onAction="#btnSSearchOnAction" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: #99b6d3; -fx-background-radius: 50;" text="Search" />
+            <JFXButton layoutX="372.0" layoutY="393.0" onAction="#btnSearchOnAction" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: #99b6d3; -fx-background-radius: 50;" text="Search" />
             <Label fx:id="lblUnpaid" layoutX="24.0" layoutY="386.0" onMouseClicked="#UnPaidOnAcrtin" opacity="0.8" prefHeight="37.0" prefWidth="98.0" text="Unpaid" textAlignment="CENTER" textFill="#195372" underline="true">
                <font>
                   <Font name="Arial Black" size="20.0" />
+               </font>
+            </Label>
+            <AnchorPane fx:id="hidePane" layoutX="18.0" layoutY="18.0" prefHeight="369.0" prefWidth="974.0">
+               <children>
+                  <Label layoutX="57.0" layoutY="229.0" prefHeight="27.0" prefWidth="112.0" text="Reservation ID" textFill="#6892bc">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblResId" alignment="CENTER" layoutX="175.0" layoutY="225.0" opacity="0.75" prefHeight="37.0" prefWidth="180.0" style="-fx-background-color: DDE7E7; -fx-background-radius: 50;" textFill="#424b4f">
+                     <font>
+                        <Font name="Arial Black" size="15.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="panePhoto" fitHeight="177.0" fitWidth="206.0" layoutX="421.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="371.0" layoutY="229.0" prefHeight="27.0" prefWidth="110.0" text="Student ID" textFill="#6892bc">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblStId" alignment="CENTER" layoutX="487.0" layoutY="225.0" opacity="0.75" prefHeight="37.0" prefWidth="180.0" style="-fx-background-color: DDE7E7; -fx-background-radius: 50;" textFill="#424b4f">
+                     <font>
+                        <Font name="Arial Black" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="370.0" layoutY="270.0" prefHeight="27.0" prefWidth="111.0" text="Student Name" textFill="#6892bc">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="blastName" alignment="CENTER" layoutX="487.0" layoutY="266.0" opacity="0.75" prefHeight="37.0" prefWidth="180.0" style="-fx-background-color: DDE7E7; -fx-background-radius: 50;" textFill="#424b4f">
+                     <font>
+                        <Font name="Arial Black" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="371.0" layoutY="310.0" prefHeight="27.0" prefWidth="102.0" text="Address" textFill="#6892bc">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblAddress" alignment="CENTER" layoutX="487.0" layoutY="307.0" opacity="0.75" prefHeight="37.0" prefWidth="180.0" style="-fx-background-color: DDE7E7; -fx-background-radius: 50;" textFill="#424b4f">
+                     <font>
+                        <Font name="Arial Black" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="683.0" layoutY="231.0" prefHeight="27.0" prefWidth="91.0" text="Contact No" textFill="#6892bc">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblContact" alignment="CENTER" layoutX="777.0" layoutY="228.0" opacity="0.75" prefHeight="37.0" prefWidth="180.0" style="-fx-background-color: DDE7E7; -fx-background-radius: 50;" textFill="#424b4f">
+                     <font>
+                        <Font name="Arial Black" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="683.0" layoutY="270.0" prefHeight="27.0" prefWidth="84.0" text="Room ID" textFill="#6892bc">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblRmId" alignment="CENTER" layoutX="777.0" layoutY="267.0" opacity="0.75" prefHeight="37.0" prefWidth="180.0" style="-fx-background-color: DDE7E7; -fx-background-radius: 50;" textFill="#424b4f">
+                     <font>
+                        <Font name="Arial Black" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="56.0" layoutY="270.0" prefHeight="27.0" prefWidth="90.0" text="Key Money" textFill="#6892bc">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblMoney" alignment="CENTER" layoutX="175.0" layoutY="266.0" opacity="0.75" prefHeight="37.0" prefWidth="179.0" style="-fx-background-color: DDE7E7; -fx-background-radius: 50;" textFill="#424b4f">
+                     <font>
+                        <Font name="Arial Black" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="56.0" layoutY="310.0" prefHeight="27.0" prefWidth="84.0" text="Status" textFill="#6892bc">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblStatus" alignment="CENTER" layoutX="175.0" layoutY="306.0" opacity="0.75" prefHeight="37.0" prefWidth="179.0" style="-fx-background-color: DDE7E7; -fx-background-radius: 50;" textFill="#424b4f">
+                     <font>
+                        <Font name="Arial Black" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="683.0" layoutY="309.0" prefHeight="27.0" prefWidth="84.0" text="Room Type" textFill="#6892bc">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblType" alignment="CENTER" layoutX="777.0" layoutY="306.0" opacity="0.75" prefHeight="37.0" prefWidth="180.0" style="-fx-background-color: DDE7E7; -fx-background-radius: 50;" textFill="#424b4f">
+                     <font>
+                        <Font name="Arial Black" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="changePane" layoutX="60.0" layoutY="14.0" prefHeight="370.0" prefWidth="911.0">
+               <children>
+                  <ImageView fitHeight="362.0" fitWidth="438.0" layoutX="234.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assests/images/paymenttw.gif" />
+                     </image></ImageView>
+                  <ImageView fitHeight="181.0" fitWidth="232.0" layoutX="205.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assests/images/resetCardgif.gif" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="272.0" fitWidth="367.0" layoutX="499.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assests/images/paymentn.gif" />
+                     </image></ImageView>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="235.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assests/images/paymentone.gif" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <ImageView fx:id="imgMoneyTw" fitHeight="81.0" fitWidth="77.0" layoutX="345.0" layoutY="4.0" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assests/images/money.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lblPaymentTw" layoutX="437.0" layoutY="24.0" opacity="0.75" prefHeight="42.0" prefWidth="255.0" text="Payment Details" textAlignment="CENTER" textFill="#195372">
+               <font>
+                  <Font name="Arial Black" size="28.0" />
                </font>
             </Label>
          </children>

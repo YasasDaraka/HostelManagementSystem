@@ -6,12 +6,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -23,6 +21,7 @@ import lk.ijse.gdse.hostelManagement.dto.ReservationProDTO;
 import lk.ijse.gdse.hostelManagement.dto.tm.ReservationProTM;
 
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -31,6 +30,39 @@ import java.util.ResourceBundle;
 public class PaymentFormController implements Initializable {
     @FXML
     public AnchorPane root;
+    @FXML
+    private ImageView imgMoneyTw;
+    @FXML
+    private Label lblPaymentTw;
+    @FXML
+    private Label lblPayment;
+    @FXML
+    private ImageView imgMoney;
+    @FXML
+    private AnchorPane changePane;
+    @FXML
+    private AnchorPane hidePane;
+
+    @FXML
+    private ImageView panePhoto;
+    @FXML
+    private Label lblResId;
+    @FXML
+    private Label lblStId;
+    @FXML
+    private Label blastName;
+    @FXML
+    private Label lblAddress;
+    @FXML
+    private Label lblContact;
+    @FXML
+    private Label lblRmId;
+    @FXML
+    private Label lblMoney;
+    @FXML
+    private Label lblStatus;
+    @FXML
+    private Label lblType;
     @FXML
     private Label lblPaid;
     @FXML
@@ -64,6 +96,12 @@ public class PaymentFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         root.requestFocus();
+        changePane.setVisible(true);
+        hidePane.setVisible(false);
+        imgMoney.setVisible(false);
+        lblPayment.setVisible(false);
+        imgMoneyTw.setVisible(true);
+        lblPaymentTw.setVisible(true);
         setValueFactory();
         loadAll("UNPAID");
 
@@ -135,10 +173,81 @@ public class PaymentFormController implements Initializable {
 
     @FXML
     private void btnClearOnAction(ActionEvent actionEvent) {
+        changePane.setVisible(true);
+        hidePane.setVisible(false);
+        imgMoney.setVisible(false);
+        lblPayment.setVisible(false);
+        imgMoneyTw.setVisible(true);
+        lblPaymentTw.setVisible(true);
+        lblResId.setText(null);
+        lblStId.setText(null);
+        blastName.setText(null);
+        lblAddress.setText(null);
+        lblContact.setText(null);
+        lblRmId.setText(null);
+        lblMoney.setText(null);
+        lblType.setText(null);
+        txtSearch.clear();
+        tblRes.refresh();
     }
 
     @FXML
-    private void btnSSearchOnAction(ActionEvent actionEvent) {
+    private void btnSearchOnAction(ActionEvent actionEvent) throws Exception {
+        String id = txtSearch.getText();
+        if(!txtSearch.getText().isEmpty()) {
+            changePane.setVisible(false);
+            hidePane.setVisible(true);
+            imgMoney.setVisible(true);
+            lblPayment.setVisible(true);
+            imgMoneyTw.setVisible(false);
+            lblPaymentTw.setVisible(false);
+            if(reservationBO.checkStudent(id)) {
+            ReservationProDTO res = reservationBO.checkInfo(id);
+            if (res != null) {
+                lblResId.setText(res.getResId());
+                lblStId.setText(res.getStudentId());
+                blastName.setText(res.getStudentName());
+                lblAddress.setText(res.getAddress());
+                lblContact.setText(res.getContact());
+                lblRmId.setText(res.getRoomId());
+                lblMoney.setText(res.getKeyMoney());
+                lblType.setText(res.getRoomType());
+                if(res.getStatus().equals("UNPAID")){
+                    lblStatus.setTextFill(Color.web("#a80000"));
+                    lblStatus.setText(res.getStatus());
+                }else{
+                    lblStatus.setTextFill(Color.web("#424b4f"));
+                    lblStatus.setText(res.getStatus());
+                }
+
+                new Alert(Alert.AlertType.CONFIRMATION, "Student Found!").show();
+
+                tblRes.getItems().stream()
+                        .filter(item -> item.getResId().equals(res.getResId()) )
+                        .findAny()
+                        .ifPresent(item -> {
+                            tblRes.getSelectionModel().select(item);
+                            tblRes.scrollTo(item);
+                        });
+
+                String imageName = id + ".png";
+                String filePath = "D:\\New folder (6)\\HostelManagementSystem\\src\\lk\\ijse\\gdse\\hostelManagement\\view\\assests\\images\\capture\\" + imageName;
+                File outputFile = new File(filePath);
+                if (outputFile.exists()) {
+                    System.out.println("Get image");
+                    Image image = new Image(outputFile.toURI().toString());
+                    panePhoto.setImage(image);
+                } else {
+                    panePhoto.setImage(null);
+                }
+
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Reservation Not Registerd!").show();
+            }
+        }else {
+                new Alert(Alert.AlertType.ERROR, "Student Not Registerd!").show();
+            }
+        }
     }
 
     @FXML

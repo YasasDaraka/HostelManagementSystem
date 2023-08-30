@@ -103,7 +103,7 @@
                   <TableColumn fx:id="colDob" prefWidth="157.0" text="Dath of Birth" />
                </columns>
             </TableView>
-            <ImageView fx:id="panePhoto" fitHeight="227.0" fitWidth="296.0" layoutX="713.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="panePhoto" fitHeight="227.0" fitWidth="280.0" layoutX="749.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
    </children>

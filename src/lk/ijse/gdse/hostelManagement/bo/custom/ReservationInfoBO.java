@@ -10,4 +10,7 @@ import java.util.List;
 public interface ReservationInfoBO extends SuperBO {
 
     List<ReservationProDTO> loadAll(String id);
+    ReservationDTO getRes(String id) throws Exception;
+    ReservationProDTO checkInfo(String id) throws Exception;
+    boolean checkStudent(String id);
 }

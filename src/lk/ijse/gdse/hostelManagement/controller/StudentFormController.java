@@ -2,10 +2,8 @@ package lk.ijse.gdse.hostelManagement.controller;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.ScaleTransition;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,9 +12,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.PixelReader;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import javafx.util.Duration;
 import lk.ijse.gdse.hostelManagement.bo.BOFactory;
@@ -30,9 +32,7 @@ import org.bytedeco.javacv.VideoInputFrameGrabber;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -82,7 +82,7 @@ public class StudentFormController implements Initializable ,Runnable{
     private Boolean isCameraEnabled = true;
     private FrameGrabber grabber;
     private Java2DFrameConverter converter;
-
+    private BufferedImage image;
     private FileChooser fileChooser = new FileChooser();
 
     StudentBO studentBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.STUDENT);
@@ -124,10 +124,24 @@ public class StudentFormController implements Initializable ,Runnable{
             grabber.start();
             while (isCapturing) {
                 Frame frame = grabber.grab();
-                BufferedImage bufferedImage = converter.getBufferedImage(frame);
-                Image fxImage = convertToJavaFXImage(bufferedImage);
+                image = converter.getBufferedImage(frame);
+                Image fxImage = convertToJavaFXImage(image);
+                double circleRadius = Math.min(fxImage.getWidth(), fxImage.getHeight()) / 2.0;
 
-                Platform.runLater(() -> panePhoto.setImage(fxImage));
+                WritableImage croppedImage = new WritableImage(
+                        (int) (circleRadius * 2),
+                        (int) (circleRadius * 2)
+                );
+                Circle mask = new Circle(circleRadius, circleRadius, circleRadius);
+
+                for (int y = 0; y < croppedImage.getHeight(); y++) {
+                    for (int x = 0; x < croppedImage.getWidth(); x++) {
+                        if (mask.contains(x, y)) {
+                            croppedImage.getPixelWriter().setColor(x, y, fxImage.getPixelReader().getColor((int) x, (int) y));
+                        }
+                    }
+                }
+                panePhoto.setImage(croppedImage);
             }
             grabber.stop();
         } catch (Exception ex) {
@@ -184,27 +198,50 @@ public class StudentFormController implements Initializable ,Runnable{
     @FXML
     private void btnSaveOnAction(ActionEvent actionEvent) throws Exception {
         if(!txtId.getText().isEmpty() && !txtname.getText().isEmpty() && cmbGender.getValue()!= null && datePick.getValue() != null && !txtAddress.getText().isEmpty() && !txtContact.getText().isEmpty()) {
-            String dob = String.valueOf(datePick.getValue());
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            Date parsedDate = dateFormat.parse(dob);
-            String gender = cmbGender.getValue ().toString ();
-            String id = txtId.getText();
-            StudentDTO studentDTO = new StudentDTO (id, txtname.getText (), txtAddress.getText (), txtContact.getText (),parsedDate, gender);
-            if(check()){
-                StudentDTO student= studentBO.getStudent(id);
-                if(student != null){
-                    new Alert(Alert.AlertType.ERROR, "Student ID Alredy Registerd!").show();
-                }else{
-                   boolean  isSaved = studentBO.saveStudent(studentDTO);
-                   if(isSaved){
-                       new Alert(Alert.AlertType.CONFIRMATION, "Student Register Succesfully!").show();
-                       loadAll();
-                       setValueFactory();
-                   }else{
-                       new Alert(Alert.AlertType.ERROR, "Student Not Saved!").show();
-                   }
+                String dob = String.valueOf(datePick.getValue());
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                Date parsedDate = dateFormat.parse(dob);
+                String gender = cmbGender.getValue().toString();
+                String id = txtId.getText();
+                StudentDTO studentDTO = new StudentDTO(id, txtname.getText(), txtAddress.getText(), txtContact.getText(), parsedDate, gender);
+                if (check()) {
+                  if (btnCapture.getText().equals("Open Camera") && panePhoto.getImage() != null) {
+                    StudentDTO student = studentBO.getStudent(id);
+                    if (student != null) {
+                        new Alert(Alert.AlertType.ERROR, "Student ID Alredy Registerd!").show();
+                    } else {
+                        boolean isSaved = studentBO.saveStudent(studentDTO);
+                        if (isSaved) {
+                            String imageName = id + ".png";
+                            String filePath = "D:\\New folder (6)\\HostelManagementSystem\\src\\lk\\ijse\\gdse\\hostelManagement\\view\\assests\\images\\capture\\" + imageName;
+                            File outputFile = new File(filePath);
+                            try {
+                                Image im = panePhoto.getImage();
+                                PixelReader pixelReader = im.getPixelReader();
+                                int width = (int) im.getWidth();
+                                int height = (int) im.getHeight();
+                                image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+
+                                for (int y = 0; y < height; y++) {
+                                    for (int x = 0; x < width; x++) {
+                                        int argb = pixelReader.getArgb(x, y);
+                                        image.setRGB(x, y, argb);
+                                    }
+                                }
+                                ImageIO.write(image, "png", outputFile);
+                            } catch (IOException e) {
+                                new Alert(Alert.AlertType.ERROR, "Failed to save the image!").show();
+                                return;
+                            }
+                            new Alert(Alert.AlertType.CONFIRMATION, "Student Register Succesfully!").show();
+                            loadAll();
+                            setValueFactory();
+                        } else {
+                            new Alert(Alert.AlertType.ERROR, "Student Not Saved!").show();
+                        }
+                    }
+                }else{new Alert(Alert.AlertType.ERROR, "Please Take Picture For Save Details!").show(); }
                 }
-            }
         }else{
             new Alert(Alert.AlertType.ERROR, "Please Fill Details!").show();
         }
@@ -229,7 +266,6 @@ public class StudentFormController implements Initializable ,Runnable{
         else {
             return true;
         }
-
     }
     @FXML
     private void btnUpdateOnAction(ActionEvent actionEvent) throws Exception {
@@ -248,6 +284,29 @@ public class StudentFormController implements Initializable ,Runnable{
                         new Alert(Alert.AlertType.CONFIRMATION, "Student Update Succesfully!").show();
                         loadAll();
                         setValueFactory();
+                        if (btnCapture.getText().equals("Open Camera") && panePhoto.getImage() != null){
+                            String imageName = id +".png";
+                            String filePath = "D:\\New folder (6)\\HostelManagementSystem\\src\\lk\\ijse\\gdse\\hostelManagement\\view\\assests\\images\\capture\\" + imageName;
+                            File outputFile = new File(filePath);
+                            try {
+                                Image im = panePhoto.getImage();
+                                PixelReader pixelReader = im.getPixelReader();
+                                int width = (int) im.getWidth();
+                                int height = (int) im.getHeight();
+                                image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+
+                                for (int y = 0; y < height; y++) {
+                                    for (int x = 0; x < width; x++) {
+                                        int argb = pixelReader.getArgb(x, y);
+                                        image.setRGB(x, y, argb);
+                                    }
+                                }
+                                ImageIO.write(image, "png", outputFile);
+                            } catch (IOException e) {
+                                new Alert(Alert.AlertType.ERROR, "Failed to save the image!").show();
+                                return;
+                            }
+                        }
                     }else{
                         new Alert(Alert.AlertType.ERROR, "Student Not Updated!").show();
                     }
@@ -268,6 +327,14 @@ public class StudentFormController implements Initializable ,Runnable{
                 if(student != null){
                     boolean  isDelete = studentBO.deleteStudent(student);
                     if(isDelete){
+                        String imageName = id + ".png";
+                        String filePath = "D:\\New folder (6)\\HostelManagementSystem\\src\\lk\\ijse\\gdse\\hostelManagement\\view\\assests\\images\\capture\\" + imageName;
+                        File outputFile = new File(filePath);
+                        if (outputFile.delete()) {
+                            System.out.println("Image file deleted successfully!");
+                        } else {
+                            System.out.println("Failed to delete image file!");
+                        }
                         new Alert(Alert.AlertType.CONFIRMATION, "Student Delete Succesfully!").show();
                         clear();
                         loadAll();
@@ -301,6 +368,28 @@ public class StudentFormController implements Initializable ,Runnable{
                 LocalDate localDate = utilDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
                 datePick.setValue(localDate);
 
+                String imageName = id + ".png";
+                String filePath = "D:\\New folder (6)\\HostelManagementSystem\\src\\lk\\ijse\\gdse\\hostelManagement\\view\\assests\\images\\capture\\" + imageName;
+                File outputFile = new File(filePath);
+                if (outputFile.exists()) {
+                    System.out.println("Get image");
+                    Image image = new Image(outputFile.toURI().toString());
+                    isCameraEnabled = false;
+                    isCapturing = false;
+                    btnCapture.setText("Open Camera");
+                    btnCapture.setStyle("-fx-background-color: #158392;" +
+                            "-fx-background-radius: 50;");
+                    panePhoto.setImage(image);
+                    if (panePhoto.getParent() instanceof Pane) {
+                        isCameraEnabled = false;
+                        isCapturing = false;
+                        btnCapture.setText("Open Camera");
+                        btnCapture.setStyle("-fx-background-color: #158392;" +
+                                "-fx-background-radius: 50;");
+                    }
+                } else {
+                    panePhoto.setImage(null);
+                }
             }else{
                 new Alert(Alert.AlertType.ERROR, "Student Not Registerd!").show();
             }
@@ -380,6 +469,14 @@ public class StudentFormController implements Initializable ,Runnable{
             datePick.setValue(null);
             loadAll();
             setValueFactory();
+            isCapturing = false;
+            isCameraEnabled = false;
+            panePhoto.setImage(null);
+            btnCapture.setText("Open Camera");
+            btnCapture.setStyle("-fx-background-color:    #158392;");
+            btnCapture.setStyle("-fx-background-color: #158392;" +
+                    "-fx-background-radius: 50;");
+
         }catch (Exception e){
             e.printStackTrace();
         }

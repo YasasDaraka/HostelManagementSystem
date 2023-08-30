@@ -37,7 +37,7 @@ public class Navigation {
                 iniUi("settingForm.fxml");
                 break;
             case PAYMENTS:
-                window.setTitle ("view Payments");
+                window.setTitle ("View Payments");
                 iniUi("paymentForm.fxml");
                 break;
             default:

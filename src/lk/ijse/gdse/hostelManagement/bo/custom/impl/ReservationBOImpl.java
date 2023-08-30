@@ -229,7 +229,7 @@ public class ReservationBOImpl implements ReservationBO {
         session=SessionFactoryConfig.getInstance ().getSession ();
         Transaction transaction=session.beginTransaction ();
         try{
-            reservationDAO.setSession(session);
+            roomDAO.setSession(session);
             boolean room = roomDAO.checkRoom(resId,roomId);
             transaction.commit ();
             session.close ();
@@ -245,7 +245,7 @@ public class ReservationBOImpl implements ReservationBO {
         session=SessionFactoryConfig.getInstance ().getSession ();
         Transaction transaction=session.beginTransaction ();
         try{
-            reservationDAO.setSession(session);
+            studentDAO.setSession(session);
             boolean st = studentDAO.checkStudent(id);
             transaction.commit ();
             session.close ();
@@ -324,7 +324,7 @@ public class ReservationBOImpl implements ReservationBO {
         session=SessionFactoryConfig.getInstance ().getSession ();
         Transaction transaction=session.beginTransaction ();
         try{
-            reservationDAO.setSession(session);
+            studentDAO.setSession(session);
             boolean st = studentDAO.checkStudentWithMiss(id,resId);
             transaction.commit ();
             session.close ();
