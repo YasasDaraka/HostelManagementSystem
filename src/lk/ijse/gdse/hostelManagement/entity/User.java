@@ -19,8 +19,6 @@ import javax.persistence.Table;
 public class User {
 
         @Id
-        @Column(name = "User_id")
-        private String userId;
         @Column(name = "user_name")
         private String userName;
         @Column(name = "password")
@@ -28,7 +26,6 @@ public class User {
 
  public UserDTO toDto() {
          UserDTO userDTO = new UserDTO();
-         userDTO.setUserId(this.userId);
          userDTO.setUserName(this.userName);
          userDTO.setPassword(this.password);
          return userDTO;

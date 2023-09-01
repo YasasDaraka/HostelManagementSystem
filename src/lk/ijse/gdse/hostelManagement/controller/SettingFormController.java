@@ -24,7 +24,6 @@ import lk.ijse.gdse.hostelManagement.bo.custom.UserBO;
 import lk.ijse.gdse.hostelManagement.dto.UserDTO;
 import lk.ijse.gdse.hostelManagement.util.CodeGenarator;
 import lk.ijse.gdse.hostelManagement.util.Sender;
-import org.controlsfx.control.Notifications;
 
 import javax.mail.MessagingException;
 import java.io.IOException;
@@ -43,8 +42,6 @@ public class SettingFormController implements Initializable {
     @FXML
     private ImageView imgDetailOpenEye;
     @FXML
-    private TextField txtId;
-    @FXML
     private TextField txtName;
     @FXML
     private TextField txtMail;
@@ -52,8 +49,6 @@ public class SettingFormController implements Initializable {
     private TextField txtDetailPassShow;
     @FXML
     private PasswordField txtDetailHidePass;
-    @FXML
-    private Label verificationLabel;
     //verify pane
     @FXML
     private Pane verifyPane;
@@ -63,20 +58,16 @@ public class SettingFormController implements Initializable {
     @FXML
     private Pane updatepane;
     @FXML
-    private TextField txtUpdateName;
-    @FXML
     private TextField txtUpdatePassShow;
     @FXML
     private PasswordField txtUpdateHidePass;
     @FXML
-    private Label lblUpdateId;
+    private Label lblUpdateusername;
     @FXML
     private ImageView imgUpdatecloseEye;
     @FXML
     private ImageView imgUpdateOpenEye;
 
-    private Timeline timeline;
-    private int countdown = 5;
     private  String code;
     private  String logId;
     UserBO userBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.USER);
@@ -188,18 +179,17 @@ public class SettingFormController implements Initializable {
     @FXML
     private void requestOnAction(ActionEvent actionEvent) throws Exception {
 
-        if(!txtId.getText().isEmpty() && !txtMail.getText().isEmpty() && !txtName.getText().isEmpty() && !txtDetailPassShow.getText().isEmpty() || !txtDetailHidePass.getText().isEmpty()) {
-            String id = txtId.getText();
+        if(!txtMail.getText().isEmpty() && !txtName.getText().isEmpty() && !txtDetailPassShow.getText().isEmpty() || !txtDetailHidePass.getText().isEmpty()) {
             String pass = txtDetailHidePass.getText();
             String mail = txtMail.getText();
-
+            String name = txtName.getText();
             if(imgDetailcloseEye.isVisible()){
                 txtDetailHidePass.setText (txtDetailPassShow.getText ());
             }else {
                 txtDetailPassShow.setText (txtDetailHidePass.getText ());
             }
 
-            UserDTO userDTO= userBO.getUser(id);
+            UserDTO userDTO= userBO.getUser(name);
             if(userDTO != null){
                String usPass = userDTO.getPassword();
                  if (usPass.equals(pass)){
@@ -214,8 +204,8 @@ public class SettingFormController implements Initializable {
                      detailPane.setVisible(false);
                      verifyPane.setVisible(true);
                      new Alert (Alert.AlertType.INFORMATION, "Check your G-mail inbox").show ();
-                     logId = userDTO.getUserId();
-                     lblUpdateId.setText(logId);
+                     logId = userDTO.getUserName();
+                     lblUpdateusername.setText(logId);
                  }else{
                      new Alert(Alert.AlertType.ERROR, "Wrong password!").show();
                  }
@@ -247,21 +237,20 @@ public class SettingFormController implements Initializable {
 
     @FXML
     private void updateOnAction(ActionEvent actionEvent) {
-        if(!txtUpdateName.getText().isEmpty() && !txtUpdatePassShow.getText().isEmpty() || !txtUpdateHidePass.getText().isEmpty()) {
-            lblUpdateId.setText(logId);
-                String name = txtUpdateName.getText();
+        if(!txtUpdatePassShow.getText().isEmpty() || !txtUpdateHidePass.getText().isEmpty()) {
+            lblUpdateusername.setText(logId);
             if(imgUpdatecloseEye.isVisible()){
                 txtUpdateHidePass.setText (txtUpdatePassShow.getText ());
             }else {
                 txtUpdatePassShow.setText (txtUpdateHidePass.getText ());
             }
                 String pas = txtUpdateHidePass.getText();
-                UserDTO userDTO = new UserDTO (logId,name,pas);
+                UserDTO userDTO = new UserDTO (logId,pas);
                     boolean  isUpdate = userBO.updateUser(userDTO);
                     if(isUpdate){
-                        new Alert(Alert.AlertType.CONFIRMATION, "User Update Succesfully!").show();
+                        new Alert(Alert.AlertType.CONFIRMATION, "User Password Update Succesfully!").show();
                     }else{
-                        new Alert(Alert.AlertType.ERROR, "User Not Updated!").show();
+                        new Alert(Alert.AlertType.ERROR, "User Password Not Updated!").show();
                     }
         }else{
             new Alert(Alert.AlertType.ERROR, "Please Fill Details!").show();
@@ -270,7 +259,7 @@ public class SettingFormController implements Initializable {
 
     @FXML
     private void DeleteOnAction(ActionEvent actionEvent) throws Exception {
-        lblUpdateId.setText(logId);
+        lblUpdateusername.setText(logId);
             UserDTO user= userBO.getUser(logId);
                 boolean  isDelete = userBO.deleteUser(user);
                 if(isDelete){

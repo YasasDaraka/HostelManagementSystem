@@ -27,8 +27,6 @@ public class CreateUserAccFormController {
     @FXML
     private PasswordField txtRePass;
     @FXML
-    private TextField txtId;
-    @FXML
     private TextField txtMail;
     @FXML
     private TextField txtName;
@@ -37,20 +35,19 @@ public class CreateUserAccFormController {
 
     @FXML
     private void createOnAction(ActionEvent actionEvent) throws Exception {
-     if (!txtId.getText().isEmpty() && !txtName.getText().isEmpty() && !txtMail.getText().isEmpty() && !txtPassword.getText().isEmpty() && !txtRePass.getText().isEmpty()) {
+     if (!txtName.getText().isEmpty() && !txtMail.getText().isEmpty() && !txtPassword.getText().isEmpty() && !txtRePass.getText().isEmpty()) {
          String pass = txtPassword.getText();
          String mail = txtMail.getText();
          String rePass = txtRePass.getText();
-         String userId = txtId.getText();
          String userName = txtName.getText();
-         UserDTO user = userBO.getUser(userId);
+         UserDTO user = userBO.getUser(userName);
 
            if(pass.equals(rePass)) {
                if(check()) {
                    if (user != null) {
-                       new Alert(Alert.AlertType.ERROR, "User ID Alredy Registerd!").show();
+                       new Alert(Alert.AlertType.ERROR, "Username Alredy Registerd!").show();
                    } else {
-                   UserDTO userDTO = new UserDTO(userId, userName, pass);
+                   UserDTO userDTO = new UserDTO(userName, pass);
                    boolean isSaved = userBO.saveUser(userDTO);
                    if (isSaved) {
                        Sender.outMail ("Now you are user in D24HOSTEL SYSTEM",mail,"D24HOSTEL");

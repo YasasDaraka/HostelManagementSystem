@@ -51,43 +51,33 @@
                   <Image url="@assests/images/Setting.gif" />
                </image>
             </ImageView>
-            <JFXButton layoutX="417.0" layoutY="553.0" onAction="#createOnAction" prefHeight="27.0" prefWidth="221.0" style="-fx-background-color: #99b6d3; -fx-background-radius: 50;" text="Create Account" />
-            <TextField fx:id="txtName" alignment="CENTER" focusTraversable="false" layoutX="454.0" layoutY="294.0" prefHeight="37.0" prefWidth="295.0" promptText="Name" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
+            <JFXButton layoutX="417.0" layoutY="535.0" onAction="#createOnAction" prefHeight="27.0" prefWidth="221.0" style="-fx-background-color: #99b6d3; -fx-background-radius: 50;" text="Create Account" />
+            <TextField fx:id="txtName" alignment="CENTER" focusTraversable="false" layoutX="454.0" layoutY="264.0" prefHeight="37.0" prefWidth="295.0" promptText="Username" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtId" alignment="CENTER" focusTraversable="false" layoutX="454.0" layoutY="232.0" prefHeight="37.0" prefWidth="295.0" promptText="User ID" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
+            <TextField fx:id="txtMail" alignment="CENTER" focusTraversable="false" layoutX="454.0" layoutY="329.0" prefHeight="37.0" prefWidth="295.0" promptText="Email" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtMail" alignment="CENTER" focusTraversable="false" layoutX="454.0" layoutY="355.0" prefHeight="37.0" prefWidth="295.0" promptText="Email" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </TextField>
-            <Label layoutX="312.0" layoutY="299.0" prefHeight="17.0" prefWidth="124.0" text="Name" textFill="#6892bc">
+            <Label layoutX="312.0" layoutY="269.0" prefHeight="17.0" prefWidth="124.0" text="Username" textFill="#6892bc">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="312.0" layoutY="237.0" prefHeight="17.0" prefWidth="124.0" text="User ID" textFill="#6892bc">
+            <Label layoutX="312.0" layoutY="336.0" prefHeight="17.0" prefWidth="124.0" text="Email" textFill="#6892bc">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="312.0" layoutY="362.0" prefHeight="17.0" prefWidth="124.0" text="Email" textFill="#6892bc">
+            <Label layoutX="311.0" layoutY="398.0" prefHeight="17.0" prefWidth="124.0" text="Password" textFill="#6892bc">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="311.0" layoutY="420.0" prefHeight="17.0" prefWidth="124.0" text="Password" textFill="#6892bc">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="311.0" layoutY="480.0" prefHeight="17.0" prefWidth="124.0" text="Re-Password" textFill="#6892bc">
+            <Label layoutX="311.0" layoutY="462.0" prefHeight="17.0" prefWidth="124.0" text="Re-Password" textFill="#6892bc">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -100,12 +90,12 @@
                   <Image url="@assests/images/closed.gif" />
                </image>
             </ImageView>
-            <PasswordField fx:id="txtRePass" alignment="CENTER" layoutX="454.0" layoutY="474.0" prefHeight="37.0" prefWidth="296.0" promptText="Re-Password" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
+            <PasswordField fx:id="txtRePass" alignment="CENTER" layoutX="454.0" layoutY="456.0" prefHeight="37.0" prefWidth="296.0" promptText="Re-Password" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </PasswordField>
-            <PasswordField fx:id="txtPassword" alignment="CENTER" layoutX="453.0" layoutY="414.0" prefHeight="37.0" prefWidth="296.0" promptText="Password" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
+            <PasswordField fx:id="txtPassword" alignment="CENTER" layoutX="453.0" layoutY="392.0" prefHeight="37.0" prefWidth="296.0" promptText="Password" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
