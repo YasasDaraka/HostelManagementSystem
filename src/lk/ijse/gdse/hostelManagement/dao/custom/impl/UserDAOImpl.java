@@ -1,6 +1,7 @@
 package lk.ijse.gdse.hostelManagement.dao.custom.impl;
 
 import lk.ijse.gdse.hostelManagement.dao.custom.UserDAO;
+import lk.ijse.gdse.hostelManagement.entity.Room;
 import lk.ijse.gdse.hostelManagement.entity.User;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -20,12 +21,12 @@ public class UserDAOImpl implements UserDAO<User,String> {
 
     @Override
     public void update(User user) {
-
+        session.update (user);
     }
 
     @Override
     public void delete(User user) {
-
+        session.delete (user);
     }
 
     @Override

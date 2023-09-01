@@ -69,4 +69,12 @@ public class StudentDAOImpl implements StudentDAO<Student,String> {
         boolean exists = count > 0;
         return exists;
     }
+
+    @Override
+    public String studentCount() {
+        String jpql = "SELECT COUNT(s) FROM Student s";
+        Query query = session.createQuery(jpql);
+        long count = (long) query.getSingleResult();
+        return String.valueOf(count);
+    }
 }

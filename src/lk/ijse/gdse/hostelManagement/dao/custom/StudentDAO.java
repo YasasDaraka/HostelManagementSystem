@@ -8,4 +8,5 @@ public interface StudentDAO<T,ID> extends CrudDAO<Student,String> {
 
     boolean checkStudent(String id);
 
+    String studentCount();
 }

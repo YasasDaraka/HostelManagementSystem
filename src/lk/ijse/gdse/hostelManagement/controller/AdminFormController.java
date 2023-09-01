@@ -3,6 +3,9 @@ package lk.ijse.gdse.hostelManagement.controller;
 import javafx.animation.ScaleTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -11,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -23,6 +27,8 @@ public class AdminFormController {
     private PasswordField txtPassword;
     private String saveName="yasas";
     private String savePass="1234";
+
+
     @FXML
     private void playMouseEnterAnimation(MouseEvent mouseEvent) {
         if (mouseEvent.getSource() instanceof ImageView) {
@@ -74,6 +80,14 @@ public class AdminFormController {
 
     @FXML
     private void navigateToHome(MouseEvent mouseEvent) throws IOException {
-        Navigation.navigate(Routes.LOGIN, root);
+        System.gc();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(Navigation.class.getResource("/lk/ijse/gdse/hostelManagement/view/loginForm.fxml"))));
+        stage.setTitle ("Log In");
+        stage.show();
+
+        Stage stage2 = (Stage) root.getScene().getWindow();
+        stage2.close();
     }
+
 }

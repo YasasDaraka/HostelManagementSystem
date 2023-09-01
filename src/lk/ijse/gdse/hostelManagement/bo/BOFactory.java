@@ -12,7 +12,7 @@ public class BOFactory {
     }
 
     public enum BOTypes{
-        STUDENT,ROOM,RESERVATION,RESERVATION_INFO,USER
+        STUDENT,ROOM,RESERVATION,RESERVATION_INFO,USER,DASHBOARD
     }
 
     public <T extends SuperBO> T getBO(BOTypes boTypes){
@@ -27,6 +27,8 @@ public class BOFactory {
                 return (T) new ReservtionInfoBOImpl();
             case USER:
                 return (T) new UserBOImpl();
+            case DASHBOARD:
+                return (T) new DashboardBOImpl();
             default:
                 return null;
         }

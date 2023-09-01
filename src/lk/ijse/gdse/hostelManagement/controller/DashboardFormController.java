@@ -14,6 +14,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
+import lk.ijse.gdse.hostelManagement.bo.BOFactory;
+import lk.ijse.gdse.hostelManagement.bo.custom.DashboardBO;
+
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -25,28 +28,33 @@ public class DashboardFormController implements Initializable {
     @FXML
     public AnchorPane root;
     @FXML
-    private ImageView imgPayments;
+    private Label lblStudent;
+    @FXML
+    private Label lblRooms;
+    @FXML
+    private Label lblReservation;
     @FXML
     private Label date;
     @FXML
     private Label time;
     @FXML
-    private ImageView imgStudent;
-    @FXML
-    private ImageView imgRoom;
-    @FXML
-    private ImageView imgReservation;
-    @FXML
-    private ImageView imgSetting;
-    @FXML
     private Label lblMenu;
     @FXML
     private Label lblDescription;
 
+    DashboardBO dashboardBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.DASHBOARD);
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.gc();
         setDate();
         setTime();
+        String st = dashboardBO.studentCount();
+        lblStudent.setText(st);
+        String res = dashboardBO.reservationCount();
+        lblReservation.setText(res);
+        int room = dashboardBO.roomCount();
+        lblRooms.setText(String.valueOf(room));
     }
 
     @FXML

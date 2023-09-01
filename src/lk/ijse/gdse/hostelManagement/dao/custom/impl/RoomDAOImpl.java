@@ -70,4 +70,12 @@ public class RoomDAOImpl implements RoomDAO<Room,String> {
         boolean roomExists = count > 0;
         return roomExists;
     }
+
+    @Override
+    public int roomCount() {
+        String jpql = "SELECT SUM(r.qty) FROM Room r";
+        Query query = session.createQuery(jpql);
+        Integer totalQuantity = (Integer) query.getSingleResult();
+        return totalQuantity != null ? totalQuantity : 0;
+    }
 }

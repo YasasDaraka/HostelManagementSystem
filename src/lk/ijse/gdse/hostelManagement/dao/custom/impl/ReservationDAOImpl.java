@@ -55,4 +55,12 @@ public class ReservationDAOImpl implements ReservationDAO<Reservation,String> {
         return query;
     }
 
+    @Override
+    public String reservationCount() {
+        String jpql = "SELECT COUNT(r) FROM Reservation r";
+        Query query = session.createQuery(jpql);
+        long count = (long) query.getSingleResult();
+        return String.valueOf(count);
+    }
+
 }

@@ -9,4 +9,6 @@ public interface ReservationDAO<T,ID> extends CrudDAO<Reservation,String> {
 
     Query loadResId();
 
+    String reservationCount();
+
 }

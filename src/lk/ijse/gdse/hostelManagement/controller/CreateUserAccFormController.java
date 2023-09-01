@@ -15,6 +15,7 @@ import javafx.util.Duration;
 import lk.ijse.gdse.hostelManagement.bo.BOFactory;
 import lk.ijse.gdse.hostelManagement.bo.custom.UserBO;
 import lk.ijse.gdse.hostelManagement.dto.UserDTO;
+import lk.ijse.gdse.hostelManagement.util.Sender;
 
 import java.io.IOException;
 
@@ -38,27 +39,30 @@ public class CreateUserAccFormController {
     private void createOnAction(ActionEvent actionEvent) throws Exception {
      if (!txtId.getText().isEmpty() && !txtName.getText().isEmpty() && !txtMail.getText().isEmpty() && !txtPassword.getText().isEmpty() && !txtRePass.getText().isEmpty()) {
          String pass = txtPassword.getText();
+         String mail = txtMail.getText();
          String rePass = txtRePass.getText();
          String userId = txtId.getText();
          String userName = txtName.getText();
-         String mail = txtMail.getText();
          UserDTO user = userBO.getUser(userId);
-         if (user != null) {
-             new Alert(Alert.AlertType.ERROR, "User ID Alredy Registerd!").show();
-         } else {
+
            if(pass.equals(rePass)) {
                if(check()) {
-               UserDTO userDTO = new UserDTO(userId, userName, pass);
-               boolean isSaved = userBO.saveUser(userDTO);
-               if (isSaved) {
-                   new Alert(Alert.AlertType.CONFIRMATION, "User Register Succesfully!").show();
-               } else {
-                   new Alert(Alert.AlertType.ERROR, "User Not Saved!").show();
+                   if (user != null) {
+                       new Alert(Alert.AlertType.ERROR, "User ID Alredy Registerd!").show();
+                   } else {
+                   UserDTO userDTO = new UserDTO(userId, userName, pass);
+                   boolean isSaved = userBO.saveUser(userDTO);
+                   if (isSaved) {
+                       new Alert(Alert.AlertType.CONFIRMATION, "User Register Succesfully!").show();
+                       Sender.outMail ("Now you are user in D24HOSTEL SYSTEM",mail,"D24HOSTEL");
+                   } else {
+                       new Alert(Alert.AlertType.ERROR, "User Not Saved!").show();
+                   }
                }
            }
            }else{
                new Alert (Alert.AlertType.ERROR, "Passwords Not Maching").show ();
-           }
+
          }
 
      } else {

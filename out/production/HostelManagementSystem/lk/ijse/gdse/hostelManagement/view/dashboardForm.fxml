@@ -55,7 +55,7 @@
                         <Font name="Arial Black" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="staff" alignment="CENTER" contentDisplay="TOP" layoutX="5.0" layoutY="110.0" opacity="0.75" prefHeight="37.0" prefWidth="150.0" textFill="#424b4f">
+                  <Label fx:id="lblReservation" alignment="CENTER" contentDisplay="TOP" layoutX="5.0" layoutY="110.0" opacity="0.75" prefHeight="37.0" prefWidth="150.0" textFill="#424b4f">
                      <font>
                         <Font name="Arial Black" size="24.0" />
                      </font>
@@ -69,7 +69,7 @@
                         <Font name="Arial Black" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="jailers" alignment="CENTER" contentDisplay="TOP" layoutX="4.0" layoutY="110.0" opacity="0.75" prefHeight="37.0" prefWidth="150.0" textFill="#424b4f">
+                  <Label fx:id="lblRooms" alignment="CENTER" contentDisplay="TOP" layoutX="4.0" layoutY="110.0" opacity="0.75" prefHeight="37.0" prefWidth="150.0" textFill="#424b4f">
                      <font>
                         <Font name="Arial Black" size="24.0" />
                      </font>
@@ -83,7 +83,7 @@
                         <Font name="Arial Black" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="prisoners" alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="110.0" opacity="0.75" prefHeight="37.0" prefWidth="135.0" textAlignment="CENTER" textFill="#424b4f">
+                  <Label fx:id="lblStudent" alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="110.0" opacity="0.75" prefHeight="37.0" prefWidth="135.0" textAlignment="CENTER" textFill="#424b4f">
                      <font>
                         <Font name="Arial Black" size="24.0" />
                      </font>

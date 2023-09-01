@@ -6,6 +6,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class Navigation {
 
@@ -18,30 +20,37 @@ public class Navigation {
 
         switch (routes) {
             case STUDENT:
+                System.gc();
                 window.setTitle ("Manage Students");
                 iniUi("studentForm.fxml");
                 break;
             case DASHBOARD:
+                System.gc();
                 window.setTitle ("Dashboard");
                 iniUi("dashboardForm.fxml");
                 break;
             case ROOM:
+                System.gc();
                 window.setTitle ("Rooms Manage");
                 iniUi("roomForm.fxml");
                 break;
             case RESERVATION:
+                System.gc();
                 window.setTitle ("Reservation Manage");
                 iniUi("reservationForm.fxml");
                 break;
             case SETTING:
+                System.gc();
                 window.setTitle ("Settings Manage");
                 iniUi("settingForm.fxml");
                 break;
             case PAYMENTS:
+                System.gc();
                 window.setTitle ("View Payments");
                 iniUi("paymentForm.fxml");
                 break;
             case CREATE_USER:
+                System.gc();
                 Stage stage = new Stage();
                 stage.setScene(new Scene(FXMLLoader.load(Navigation.class.getResource("/lk/ijse/gdse/hostelManagement/view/createUserAccForm.fxml"))));
                 stage.setTitle ("User Sign In");
@@ -51,6 +60,7 @@ public class Navigation {
                 stage2.close();
                 break;
             case ADMIN:
+                System.gc();
                 FXMLLoader fxmlLoader=new FXMLLoader(Navigation.class.getResource("/lk/ijse/gdse/hostelManagement/view/adminForm.fxml"));
                 Parent parent=fxmlLoader.load();
                 Stage stage3=new Stage();
@@ -62,6 +72,7 @@ public class Navigation {
                 stage4.close();
                 break;
             case LOGIN:
+                System.gc();
                 window.setTitle ("Log In");
                 iniUi("loginForm.fxml");
                 break;

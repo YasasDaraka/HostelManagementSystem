@@ -4,6 +4,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -45,7 +46,65 @@
                   <Image url="@assests/images/user.gif" />
                </image>
             </ImageView>
-            <Pane layoutX="32.0" layoutY="182.0" prefHeight="503.0" prefWidth="991.0" style="-fx-background-color: DDE7E7; -fx-background-radius: 25;" />
+            <Pane fx:id="detailPane" layoutX="32.0" layoutY="182.0" prefHeight="503.0" prefWidth="991.0" style="-fx-background-color: DDE7E7; -fx-background-radius: 25;">
+               <children>
+                  <ImageView fx:id="imgDetailcloseEye" fitHeight="40.0" fitWidth="41.0" layoutX="726.0" layoutY="304.0" onMouseClicked="#DetailcloseEyeOnAction" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assests/images/outputeycl.gif" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="imgDetailOpenEye" fitHeight="40.0" fitWidth="41.0" layoutX="726.0" layoutY="309.0" onMouseClicked="#DetailopenEyeOnAction" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assests/images/outputeyeop.gif" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="txtId" alignment="CENTER" focusTraversable="false" layoutX="421.0" layoutY="109.0" prefHeight="37.0" prefWidth="295.0" promptText="User ID" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="277.0" layoutY="113.0" prefHeight="17.0" prefWidth="124.0" text="User ID" textFill="#6892bc">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtName" alignment="CENTER" focusTraversable="false" layoutX="421.0" layoutY="175.0" prefHeight="37.0" prefWidth="295.0" promptText="Name" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="277.0" layoutY="179.0" prefHeight="17.0" prefWidth="124.0" text="Name" textFill="#6892bc">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtMail" alignment="CENTER" focusTraversable="false" layoutX="421.0" layoutY="241.0" prefHeight="37.0" prefWidth="295.0" promptText="Email" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="277.0" layoutY="245.0" prefHeight="17.0" prefWidth="124.0" text="Email" textFill="#6892bc">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtDetailPassShow" alignment="CENTER" focusTraversable="false" layoutX="421.0" layoutY="307.0" prefHeight="37.0" prefWidth="295.0" promptText="Password" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="277.0" layoutY="311.0" prefHeight="17.0" prefWidth="124.0" text="Password" textFill="#6892bc">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <JFXButton layoutX="391.0" layoutY="389.0" onAction="#requestOnAction" prefHeight="27.0" prefWidth="221.0" style="-fx-background-color: #99b6d3; -fx-background-radius: 50;" text="Request" />
+                  <PasswordField fx:id="txtDetailHidePass" alignment="CENTER" layoutX="421.0" layoutY="306.0" prefHeight="37.0" prefWidth="296.0" promptText="Password" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </PasswordField>
+               </children></Pane>
             <Label layoutX="512.0" layoutY="96.0" opacity="0.75" prefHeight="44.0" prefWidth="145.0" text="Settings" textFill="#195372">
                <font>
                   <Font name="Arial Black" size="30.0" />
@@ -57,67 +116,72 @@
                   <Image url="@assests/images/Setting.gif" />
                </image>
             </ImageView>
-            <JFXButton layoutX="417.0" layoutY="470.0" onAction="#requestOnAction" prefHeight="27.0" prefWidth="221.0" style="-fx-background-color: #99b6d3; -fx-background-radius: 50;" text="Request" />
-            <TextField fx:id="txtFirstName" alignment="CENTER" focusTraversable="false" layoutX="454.0" layoutY="294.0" prefHeight="37.0" prefWidth="295.0" promptText="Name" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="txtId" alignment="CENTER" focusTraversable="false" layoutX="454.0" layoutY="232.0" prefHeight="37.0" prefWidth="295.0" promptText="User ID" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="txtAddress" alignment="CENTER" focusTraversable="false" layoutX="454.0" layoutY="355.0" prefHeight="37.0" prefWidth="295.0" promptText="Email" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="txtContact" alignment="CENTER" focusTraversable="false" layoutX="454.0" layoutY="415.0" prefHeight="37.0" prefWidth="295.0" promptText="Password" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </TextField>
-            <Label layoutX="312.0" layoutY="299.0" prefHeight="17.0" prefWidth="124.0" text="Name" textFill="#6892bc">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="312.0" layoutY="237.0" prefHeight="17.0" prefWidth="124.0" text="User ID" textFill="#6892bc">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="312.0" layoutY="362.0" prefHeight="17.0" prefWidth="124.0" text="Email" textFill="#6892bc">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="311.0" layoutY="420.0" prefHeight="17.0" prefWidth="124.0" text="Password" textFill="#6892bc">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtAddress1" alignment="CENTER" focusTraversable="false" layoutX="454.0" layoutY="515.0" prefHeight="37.0" prefWidth="295.0" promptText="Verify Code" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="txtContact1" alignment="CENTER" focusTraversable="false" layoutX="454.0" layoutY="575.0" prefHeight="37.0" prefWidth="295.0" promptText="New Password" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </TextField>
-            <Label layoutX="312.0" layoutY="522.0" prefHeight="17.0" prefWidth="124.0" text="Verify Code" textFill="#6892bc">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="311.0" layoutY="580.0" prefHeight="17.0" prefWidth="124.0" text="New Password" textFill="#6892bc">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
+            <Pane fx:id="verifyPane" layoutX="32.0" layoutY="181.0" prefHeight="503.0" prefWidth="991.0" style="-fx-background-color: DDE7E7; -fx-background-radius: 25;" visible="false">
+               <children>
+                  <TextField fx:id="txtVerifyCode" alignment="CENTER" focusTraversable="false" layoutX="422.0" layoutY="264.0" prefHeight="37.0" prefWidth="295.0" promptText="Verify Code" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="278.0" layoutY="268.0" prefHeight="17.0" prefWidth="124.0" text="Verify Code" textFill="#6892bc">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <JFXButton layoutX="390.0" layoutY="350.0" onAction="#confirmOnAction" prefHeight="27.0" prefWidth="221.0" style="-fx-background-color: #99b6d3; -fx-background-radius: 50;" text="Confirm" />
+               </children>
+            </Pane>
+            <Pane fx:id="updatepane" layoutX="31.0" layoutY="182.0" prefHeight="503.0" prefWidth="991.0" style="-fx-background-color: DDE7E7; -fx-background-radius: 25;">
+               <children>
+                  <ImageView fx:id="imgUpdatecloseEye" fitHeight="40.0" fitWidth="41.0" layoutX="726.0" layoutY="239.0" onMouseClicked="#UpdatecloseEyeOnAction" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assests/images/outputeycl.gif" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="imgUpdateOpenEye" fitHeight="40.0" fitWidth="41.0" layoutX="726.0" layoutY="243.0" onMouseClicked="#UpdateopenEyeOnAction" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assests/images/outputeyeop.gif" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="277.0" layoutY="113.0" prefHeight="17.0" prefWidth="124.0" text="User ID" textFill="#6892bc">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtUpdateName" alignment="CENTER" focusTraversable="false" layoutX="421.0" layoutY="175.0" prefHeight="37.0" prefWidth="295.0" promptText="Name" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="277.0" layoutY="179.0" prefHeight="17.0" prefWidth="124.0" text="Name" textFill="#6892bc">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtUpdatePassShow" alignment="CENTER" focusTraversable="false" layoutX="421.0" layoutY="241.0" prefHeight="37.0" prefWidth="295.0" promptText="Password" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="277.0" layoutY="246.0" prefHeight="17.0" prefWidth="124.0" text="Password" textFill="#6892bc">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <JFXButton layoutX="394.0" layoutY="320.0" onAction="#updateOnAction" prefHeight="27.0" prefWidth="221.0" style="-fx-background-color: #8FB280; -fx-background-radius: 50;" text="Update" />
+                  <PasswordField fx:id="txtUpdateHidePass" alignment="CENTER" layoutX="421.0" layoutY="241.0" prefHeight="37.0" prefWidth="296.0" promptText="Password" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </PasswordField>
+                  <JFXButton layoutX="394.0" layoutY="373.0" onAction="#DeleteOnAction" prefHeight="27.0" prefWidth="221.0" style="-fx-background-color: #FFB3B3; -fx-background-radius: 50;" text="DELETE ACCOUNT" textFill="#a80000" />
+                  <Label fx:id="lblUpdateId" alignment="CENTER" layoutX="421.0" layoutY="109.0" prefHeight="37.0" prefWidth="295.0" style="-fx-background-color: #ebf2ed; -fx-background-radius: 50;" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
             <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="37.0" layoutY="187.0" onMouseClicked="#navigateToHome" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -126,7 +190,6 @@
                   <Image url="@assests/images/closed.gif" />
                </image>
             </ImageView>
-            <JFXButton layoutX="418.0" layoutY="630.0" onAction="#changePassOnAction" prefHeight="27.0" prefWidth="221.0" style="-fx-background-color: #FFB3B3; -fx-background-radius: 50;" text="CHANGE PASSWORD" textFill="#a80000" />
          </children>
       </AnchorPane>
    </children>

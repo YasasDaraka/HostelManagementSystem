@@ -5,6 +5,7 @@ import lk.ijse.gdse.hostelManagement.config.SessionFactoryConfig;
 import lk.ijse.gdse.hostelManagement.dao.DAOFactory;
 import lk.ijse.gdse.hostelManagement.dao.custom.StudentDAO;
 import lk.ijse.gdse.hostelManagement.dao.custom.UserDAO;
+import lk.ijse.gdse.hostelManagement.dto.RoomDTO;
 import lk.ijse.gdse.hostelManagement.dto.StudentDTO;
 import lk.ijse.gdse.hostelManagement.dto.UserDTO;
 import lk.ijse.gdse.hostelManagement.entity.Student;
@@ -74,5 +75,38 @@ public class UserBOImpl implements UserBO {
             session.close();
         }
         return null;
+    }
+
+    @Override
+    public boolean updateUser(UserDTO dto) {
+        session=SessionFactoryConfig.getInstance ().getSession ();
+        Transaction transaction=session.beginTransaction ();
+        try {
+            userDAO.setSession (session);
+            userDAO.update (dto.toEntity());
+            transaction.commit ();
+            session.close ();
+            return true;
+        }catch (Exception e){
+            transaction.rollback ();
+            e.printStackTrace();
+        }
+        return false;
+    }
+    @Override
+    public boolean deleteUser(UserDTO dto) {
+        session=SessionFactoryConfig.getInstance ().getSession ();
+        Transaction transaction=session.beginTransaction ();
+        try{
+            userDAO.setSession (session);
+            userDAO.delete (dto.toEntity());
+            transaction.commit ();
+            session.close ();
+            return true;
+        }catch (Exception e){
+            transaction.rollback ();
+            e.printStackTrace();
+        }
+        return false;
     }
 }

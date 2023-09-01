@@ -12,9 +12,9 @@ import javafx.scene.layout.AnchorPane;
 import lk.ijse.gdse.hostelManagement.bo.BOFactory;
 import lk.ijse.gdse.hostelManagement.bo.custom.UserBO;
 import lk.ijse.gdse.hostelManagement.dto.UserDTO;
+
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class LoginFormController implements Initializable {
@@ -42,23 +42,23 @@ public class LoginFormController implements Initializable {
     }
 
     @FXML
-    private void loginOnAction(ActionEvent actionEvent) throws IOException {
+    private void loginOnAction(ActionEvent actionEvent) throws Exception {
         if(!txtId.getText().isEmpty() && !txtShowPass.getText().isEmpty() || !txtHidePass.getText().isEmpty()) {
             String id = txtId.getText();
             String pass = txtHidePass.getText();
 
-            if(imgcloseEye.isVisible()){
-                txtHidePass.setText (txtShowPass.getText ());
-            }else {
-                txtShowPass.setText (txtHidePass.getText ());
+            UserDTO userDTO= userBO.getUser(id);
+            if(userDTO != null){
+                String usPass = userDTO.getPassword();
+                if (usPass.equals(pass)){
+                    Navigation.navigate(Routes.DASHBOARD, root);
+                }else{
+                    new Alert(Alert.AlertType.ERROR, "Wrong password!").show();
+                }
+            }else{
+                new Alert(Alert.AlertType.ERROR, "User ID not found!").show();
             }
 
-            List<UserDTO> userList = userBO.loadAll();
-            for (UserDTO dto : userList) {
-                if (dto.getUserId().equals(id) && dto.getPassword().equals(pass)) {
-                    Navigation.navigate(Routes.DASHBOARD, root);
-                }
-            }
         }else {
             new Alert(Alert.AlertType.ERROR, "Please Fill Details!").show();
         }

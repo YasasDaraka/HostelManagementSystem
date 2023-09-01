@@ -16,4 +16,5 @@ public interface RoomBO extends SuperBO {
     List<RoomDTO> loadAll();
 
     RoomDTO getRoom(String id) throws Exception;
+
 }
