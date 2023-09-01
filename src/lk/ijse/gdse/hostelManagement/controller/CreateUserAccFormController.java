@@ -53,8 +53,8 @@ public class CreateUserAccFormController {
                    UserDTO userDTO = new UserDTO(userId, userName, pass);
                    boolean isSaved = userBO.saveUser(userDTO);
                    if (isSaved) {
-                       new Alert(Alert.AlertType.CONFIRMATION, "User Register Succesfully!").show();
                        Sender.outMail ("Now you are user in D24HOSTEL SYSTEM",mail,"D24HOSTEL");
+                       new Alert(Alert.AlertType.CONFIRMATION, "User Register Succesfully!").show();
                    } else {
                        new Alert(Alert.AlertType.ERROR, "User Not Saved!").show();
                    }

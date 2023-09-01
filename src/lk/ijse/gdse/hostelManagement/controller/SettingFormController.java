@@ -1,6 +1,8 @@
 package lk.ijse.gdse.hostelManagement.controller;
 
+import javafx.animation.KeyFrame;
 import javafx.animation.ScaleTransition;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -73,6 +75,8 @@ public class SettingFormController implements Initializable {
     @FXML
     private ImageView imgUpdateOpenEye;
 
+    private Timeline timeline;
+    private int countdown = 5;
     private  String code;
     private  String logId;
     UserBO userBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.USER);
@@ -270,19 +274,10 @@ public class SettingFormController implements Initializable {
             UserDTO user= userBO.getUser(logId);
                 boolean  isDelete = userBO.deleteUser(user);
                 if(isDelete){
-                    showCountdownPopup();
+                    new Alert(Alert.AlertType.CONFIRMATION, "User Deleted Succesfully!").show();
                 }else{
                     new Alert(Alert.AlertType.ERROR, "User Not Deleted!").show();
                 }
-    }
-
-    private void showCountdownPopup() {
-        Notifications.create()
-                .title("D24 HOSTEL\n\n")
-                .text("User Delete Succesfully! Log out in 5 seconds").position(Pos.CENTER).darkStyle()
-                .hideAfter(Duration.seconds(5))
-                .show();
-
     }
 
 }

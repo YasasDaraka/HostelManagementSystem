@@ -129,9 +129,14 @@
                      </font>
                   </Label>
                   <JFXButton layoutX="390.0" layoutY="350.0" onAction="#confirmOnAction" prefHeight="27.0" prefWidth="221.0" style="-fx-background-color: #99b6d3; -fx-background-radius: 50;" text="Confirm" />
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="399.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assests/images/tools.gif" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
-            <Pane fx:id="updatepane" layoutX="31.0" layoutY="182.0" prefHeight="503.0" prefWidth="991.0" style="-fx-background-color: DDE7E7; -fx-background-radius: 25;">
+            <Pane fx:id="updatepane" layoutX="31.0" layoutY="182.0" prefHeight="503.0" prefWidth="991.0" style="-fx-background-color: DDE7E7; -fx-background-radius: 25;" visible="false">
                <children>
                   <ImageView fx:id="imgUpdatecloseEye" fitHeight="40.0" fitWidth="41.0" layoutX="726.0" layoutY="239.0" onMouseClicked="#UpdatecloseEyeOnAction" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -190,6 +195,7 @@
                   <Image url="@assests/images/closed.gif" />
                </image>
             </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
    </children>

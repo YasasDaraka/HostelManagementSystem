@@ -90,6 +90,8 @@ public class UserBOImpl implements UserBO {
         }catch (Exception e){
             transaction.rollback ();
             e.printStackTrace();
+        } finally {
+            session.close();
         }
         return false;
     }
@@ -106,6 +108,8 @@ public class UserBOImpl implements UserBO {
         }catch (Exception e){
             transaction.rollback ();
             e.printStackTrace();
+        } finally {
+            session.close();
         }
         return false;
     }
