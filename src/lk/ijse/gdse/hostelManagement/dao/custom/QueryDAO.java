@@ -11,5 +11,5 @@ public interface QueryDAO<T,ID> extends SuperDAO {
 
     List<T> loadAllInfo(String status);
 
-    ReservationProjection checkInfo(String id);
+    List<ReservationProjection> checkInfo(String id);
 }

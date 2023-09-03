@@ -58,15 +58,20 @@ public class ReservtionInfoBOImpl implements ReservationInfoBO {
         }
         return null;
     }
+
     @Override
-    public ReservationProDTO checkInfo(String id) throws Exception {
+    public List<ReservationProDTO> checkInfo(String id) throws Exception {
         session = SessionFactoryConfig.getInstance().getSession();
         queryDAO.setSession(session);
         try {
-            ReservationProjection reservation = queryDAO.checkInfo(id);
+            List<ReservationProjection> reservation = queryDAO.checkInfo(id);
+            List<ReservationProDTO> listDto=new ArrayList<>();
             session.close();
-            if (reservation != null) {
-                return reservation.toDto();
+            for (ReservationProjection rs:reservation) {
+                listDto.add(rs.toDto());
+            }
+            if(listDto != null) {
+                return listDto;
             }
         }catch(Exception e) {
             e.printStackTrace();
@@ -75,6 +80,7 @@ public class ReservtionInfoBOImpl implements ReservationInfoBO {
         }
         return null;
     }
+
     @Override
     public boolean checkStudent(String id) {
         session=SessionFactoryConfig.getInstance ().getSession ();

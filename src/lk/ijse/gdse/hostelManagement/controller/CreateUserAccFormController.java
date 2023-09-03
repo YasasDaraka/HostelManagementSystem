@@ -36,7 +36,7 @@ public class CreateUserAccFormController {
     @FXML
     private void createOnAction(ActionEvent actionEvent) throws Exception {
      if (!txtName.getText().isEmpty() && !txtMail.getText().isEmpty() && !txtPassword.getText().isEmpty() && !txtRePass.getText().isEmpty()) {
-         String pass = txtPassword.getText();
+         String pass = txtRePass.getText();
          String mail = txtMail.getText();
          String rePass = txtRePass.getText();
          String userName = txtName.getText();

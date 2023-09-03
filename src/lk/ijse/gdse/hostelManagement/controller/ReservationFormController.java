@@ -191,7 +191,7 @@ public class ReservationFormController implements Initializable {
             RoomDTO roomDTO = new RoomDTO();
             roomDTO.setRoomId(room);
             if (res == null){
-                if (checkReg(resId,room,st)) {
+               // if (checkReg(resId,room,st)) {
                     ReservationDTO saveRes = new ReservationDTO(resId, studentDTO, roomDTO, status,null);
                     if (reservationBO.roomQty(room) > 0) {
                         boolean isSaved = reservationBO.saveRes(saveRes);
@@ -199,6 +199,8 @@ public class ReservationFormController implements Initializable {
                             new Alert(Alert.AlertType.CONFIRMATION, "Reservation Register Succesfully!").show();
                             loadAll();
                             setValueFactory();
+                            nextResId();
+                            setRoom();
                         } else {
                             new Alert(Alert.AlertType.ERROR, "Reservation Not Saved!").show();
                         }
@@ -206,7 +208,7 @@ public class ReservationFormController implements Initializable {
                         new Alert(Alert.AlertType.ERROR, "Alredy all Rooms are Full!").show();
                         cmbRmId.requestFocus();
                     }
-                }
+               // }
             }else {
                 new Alert(Alert.AlertType.ERROR, "Reservation ID Alredy Registerd!").show();
             }
@@ -215,7 +217,8 @@ public class ReservationFormController implements Initializable {
         }lblQty.setText(null);
 
     }
-    private boolean checkReg(String resId,String roomId,String stid) {
+    //if can use to register reservation by with one student only have one room
+    /*    private boolean checkReg(String resId,String roomId,String stid) {
         boolean room = reservationBO.checkRoom(resId,roomId);
         boolean student = reservationBO.checkStudent(stid);
 
@@ -236,7 +239,7 @@ public class ReservationFormController implements Initializable {
             return true;
         }
         return false;
-    }
+    }*/
     @FXML
     private void btnUpdateOnAction(ActionEvent actionEvent) throws Exception {
         if(!txtResId.getText().isEmpty() && cmdStId.getValue()!= null && cmbRmId.getValue() != null  && cmbStatus.getValue() != null) {
@@ -257,6 +260,7 @@ public class ReservationFormController implements Initializable {
                 if (isupdate) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Reservation Update Succesfully!").show();
                     tblRes.refresh();
+                    setRoom();
                 } else {
                     new Alert(Alert.AlertType.ERROR, "Reservation Not Update!").show();
                 }
@@ -274,6 +278,7 @@ public class ReservationFormController implements Initializable {
                                 new Alert(Alert.AlertType.CONFIRMATION, "Reservation Update Succesfully!").show();
                                 loadAll();
                                 setValueFactory();
+                                setRoom();
                             } else {
                                 new Alert(Alert.AlertType.ERROR, "Reservation Not Update!").show();
                             }
@@ -330,7 +335,7 @@ public class ReservationFormController implements Initializable {
 
     private void clear() {
         try {
-            txtResId.clear();
+            nextResId();
             cmdStId.setValue(null);
             cmbRmId.setValue(null);
             cmbStatus.setValue(null);

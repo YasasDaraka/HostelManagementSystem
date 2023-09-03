@@ -3,7 +3,6 @@ package lk.ijse.gdse.hostelManagement.dao.custom.impl;
 import lk.ijse.gdse.hostelManagement.dao.custom.QueryDAO;
 import lk.ijse.gdse.hostelManagement.projection.ReservationProjection;
 import org.hibernate.Session;
-import javax.persistence.NoResultException;
 import java.util.List;
 
 public class QueryDAOImpl implements QueryDAO<ReservationProjection,String> {
@@ -33,7 +32,7 @@ public class QueryDAOImpl implements QueryDAO<ReservationProjection,String> {
     }
 
     @Override
-    public ReservationProjection checkInfo(String id) {
+    public List<ReservationProjection> checkInfo(String id) {
 
         String hql = "SELECT new lk.ijse.gdse.hostelManagement.projection.ReservationProjection" +
                 "(r.resId, s.stId, s.stName, ro.roomId, ro.type, ro.keyMoney, r.status,s.stContact,s.stAddress) " +
@@ -43,10 +42,10 @@ public class QueryDAOImpl implements QueryDAO<ReservationProjection,String> {
                 "WHERE s.stId = :statusParam";
 
         try {
-            ReservationProjection result = session.createQuery(hql, ReservationProjection.class)
+            List<ReservationProjection> resultList = session.createQuery(hql, ReservationProjection.class)
                     .setParameter("statusParam", id)
-                    .getSingleResult();
-            return result;
+                    .getResultList();
+            return resultList;
         } catch (Exception e) {
             return null;
         }

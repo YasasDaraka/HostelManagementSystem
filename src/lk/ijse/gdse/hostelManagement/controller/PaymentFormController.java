@@ -19,6 +19,8 @@ import lk.ijse.gdse.hostelManagement.bo.BOFactory;
 import lk.ijse.gdse.hostelManagement.bo.custom.ReservationInfoBO;
 import lk.ijse.gdse.hostelManagement.dto.ReservationProDTO;
 import lk.ijse.gdse.hostelManagement.dto.tm.ReservationProTM;
+import lk.ijse.gdse.hostelManagement.projection.ReservationProjection;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -102,9 +104,46 @@ public class PaymentFormController implements Initializable {
         lblPaymentTw.setVisible(true);
         setValueFactory();
         loadAll("UNPAID");
+        setSelectToTxt();
 
     }
-
+    private void setSelectToTxt() {
+        tblRes.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                changePane.setVisible(false);
+                hidePane.setVisible(true);
+                imgMoney.setVisible(true);
+                lblPayment.setVisible(true);
+                imgMoneyTw.setVisible(false);
+                lblPaymentTw.setVisible(false);
+                lblResId.setText(newSelection.getResId());
+                lblStId.setText(newSelection.getStudentId());
+                blastName.setText(newSelection.getStudentName());
+                lblAddress.setText(newSelection.getAddress());
+                lblContact.setText(newSelection.getContact());
+                lblRmId.setText(newSelection.getRoomId());
+                lblMoney.setText(newSelection.getKeyMoney());
+                lblType.setText(newSelection.getRoomType());
+                if (newSelection.getStatus().equals("UNPAID")) {
+                    lblStatus.setTextFill(Color.web("#a80000"));
+                    lblStatus.setText(newSelection.getStatus());
+                } else {
+                    lblStatus.setTextFill(Color.web("#424b4f"));
+                    lblStatus.setText(newSelection.getStatus());
+                }
+                String imageName = newSelection.getStudentId() + ".png";
+                String filePath = "D:\\New folder (6)\\HostelManagementSystem\\src\\lk\\ijse\\gdse\\hostelManagement\\view\\assests\\images\\capture\\" + imageName;
+                File outputFile = new File(filePath);
+                if (outputFile.exists()) {
+                    System.out.println("Get image");
+                    Image image = new Image(outputFile.toURI().toString());
+                    panePhoto.setImage(image);
+                } else {
+                    panePhoto.setImage(null);
+                }
+            }
+        });
+    }
     private void setValueFactory() {
         colResId.setCellValueFactory (new PropertyValueFactory<>("resId"));
         colStId.setCellValueFactory (new PropertyValueFactory<> ("studentId"));
@@ -200,45 +239,47 @@ public class PaymentFormController implements Initializable {
             imgMoneyTw.setVisible(false);
             lblPaymentTw.setVisible(false);
             if(reservationBO.checkStudent(id)) {
-            ReservationProDTO res = reservationBO.checkInfo(id);
+                List<ReservationProDTO> res = reservationBO.checkInfo(id);
             if (res != null) {
-                lblResId.setText(res.getResId());
-                lblStId.setText(res.getStudentId());
-                blastName.setText(res.getStudentName());
-                lblAddress.setText(res.getAddress());
-                lblContact.setText(res.getContact());
-                lblRmId.setText(res.getRoomId());
-                lblMoney.setText(res.getKeyMoney());
-                lblType.setText(res.getRoomType());
-                if(res.getStatus().equals("UNPAID")){
-                    lblStatus.setTextFill(Color.web("#a80000"));
-                    lblStatus.setText(res.getStatus());
-                }else{
-                    lblStatus.setTextFill(Color.web("#424b4f"));
-                    lblStatus.setText(res.getStatus());
+                for (ReservationProDTO rs:res) {
+
+                    lblResId.setText(rs.getResId());
+                    lblStId.setText(rs.getStudentId());
+                    blastName.setText(rs.getStudentName());
+                    lblAddress.setText(rs.getAddress());
+                    lblContact.setText(rs.getContact());
+                    lblRmId.setText(rs.getRoomId());
+                    lblMoney.setText(rs.getKeyMoney());
+                    lblType.setText(rs.getRoomType());
+                    if (rs.getStatus().equals("UNPAID")) {
+                        lblStatus.setTextFill(Color.web("#a80000"));
+                        lblStatus.setText(rs.getStatus());
+                    } else {
+                        lblStatus.setTextFill(Color.web("#424b4f"));
+                        lblStatus.setText(rs.getStatus());
+                    }
+                    new Alert(Alert.AlertType.CONFIRMATION, "Student Found!").show();
+
+                    tblRes.getItems().stream()
+                            .filter(item -> item.getResId().equals(rs.getResId()))
+                            .findAny()
+                            .ifPresent(item -> {
+                                tblRes.getSelectionModel().select(item);
+                                tblRes.scrollTo(item);
+                            });
+
+                    String imageName = id + ".png";
+                    String filePath = "D:\\New folder (6)\\HostelManagementSystem\\src\\lk\\ijse\\gdse\\hostelManagement\\view\\assests\\images\\capture\\" + imageName;
+                    File outputFile = new File(filePath);
+                    if (outputFile.exists()) {
+                        System.out.println("Get image");
+                        Image image = new Image(outputFile.toURI().toString());
+                        panePhoto.setImage(image);
+                    } else {
+                        panePhoto.setImage(null);
+                    }
+                    break;
                 }
-
-                new Alert(Alert.AlertType.CONFIRMATION, "Student Found!").show();
-
-                tblRes.getItems().stream()
-                        .filter(item -> item.getResId().equals(res.getResId()) )
-                        .findAny()
-                        .ifPresent(item -> {
-                            tblRes.getSelectionModel().select(item);
-                            tblRes.scrollTo(item);
-                        });
-
-                String imageName = id + ".png";
-                String filePath = "D:\\New folder (6)\\HostelManagementSystem\\src\\lk\\ijse\\gdse\\hostelManagement\\view\\assests\\images\\capture\\" + imageName;
-                File outputFile = new File(filePath);
-                if (outputFile.exists()) {
-                    System.out.println("Get image");
-                    Image image = new Image(outputFile.toURI().toString());
-                    panePhoto.setImage(image);
-                } else {
-                    panePhoto.setImage(null);
-                }
-
             } else {
                 new Alert(Alert.AlertType.ERROR, "Reservation Not Registerd!").show();
             }
