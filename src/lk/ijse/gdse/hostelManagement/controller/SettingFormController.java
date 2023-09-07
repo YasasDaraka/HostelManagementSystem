@@ -239,12 +239,12 @@ public class SettingFormController implements Initializable {
     private void updateOnAction(ActionEvent actionEvent) {
         if(!txtUpdatePassShow.getText().isEmpty() || !txtUpdateHidePass.getText().isEmpty()) {
             lblUpdateusername.setText(logId);
+            String pas = txtUpdateHidePass.getText();
             if(imgUpdatecloseEye.isVisible()){
                 txtUpdateHidePass.setText (txtUpdatePassShow.getText ());
             }else {
                 txtUpdatePassShow.setText (txtUpdateHidePass.getText ());
             }
-                String pas = txtUpdateHidePass.getText();
                 UserDTO userDTO = new UserDTO (logId,pas);
                     boolean  isUpdate = userBO.updateUser(userDTO);
                     if(isUpdate){
