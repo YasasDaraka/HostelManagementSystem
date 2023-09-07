@@ -162,20 +162,20 @@
                <children>
                   <ImageView fitHeight="362.0" fitWidth="438.0" layoutX="234.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@assests/images/paymenttw.gif" />
+                        <Image url="@assests/images/paymenttw.png" />
                      </image></ImageView>
                   <ImageView fitHeight="181.0" fitWidth="232.0" layoutX="205.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@assests/images/resetCardgif.gif" />
+                        <Image url="@assests/images/resetCardgif.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="272.0" fitWidth="367.0" layoutX="499.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@assests/images/paymentn.gif" />
+                        <Image url="@assests/images/paymentn.png" />
                      </image></ImageView>
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="235.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@assests/images/paymentone.gif" />
+                        <Image url="@assests/images/paymentone.png" />
                      </image>
                   </ImageView>
                </children>

@@ -21,7 +21,7 @@
                   </Label>
                   <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="6.0" layoutY="8.0" onMouseClicked="#logOutOnAction" opacity="0.75" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@assests/images/egif.gif" />
+                        <Image url="@assests/images/egif.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="45.0" layoutY="6.0" prefHeight="37.0" prefWidth="147.0" text="Dashboard" textFill="#026e6f">
@@ -39,12 +39,12 @@
             </Label>
             <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="1007.0" layoutY="8.0" opacity="0.7" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@assests/images/output-onlinegiftools.gif" />
+                  <Image url="@assests/images/output-onlinegiftools.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="35.0" fitWidth="33.0" layoutX="885.0" layoutY="7.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@assests/images/user.gif" />
+                  <Image url="@assests/images/user.png" />
                </image>
             </ImageView>
             <Label layoutX="925.0" layoutY="11.0" prefHeight="25.0" prefWidth="89.0" text="Administrator" />
@@ -129,7 +129,7 @@
                </children></Pane>
             <ImageView fx:id="imgSetting" fitHeight="142.0" fitWidth="147.0" layoutX="860.0" layoutY="369.0" onMouseClicked="#settingMange" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@assests/images/Setting.gif" />
+                  <Image url="@assests/images/Setting.png" />
                </image>
             </ImageView>
             <ImageView fx:id="imgStudent" fitHeight="150.0" fitWidth="153.0" layoutX="61.0" layoutY="367.0" onMouseClicked="#studentManage" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
@@ -167,9 +167,9 @@
                   <Font name="Arial Black" size="24.0" />
                </font>
             </Label>
-            <ImageView fx:id="imgPayments" fitHeight="208.0" fitWidth="247.0" layoutX="612.0" layoutY="343.0" onMouseClicked="#PaymentsMange" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true">
+            <ImageView fx:id="imgPayments" fitHeight="172.0" fitWidth="180.0" layoutX="644.0" layoutY="363.0" onMouseClicked="#PaymentsMange" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@assests/images/resetCardgif.gif" />
+                  <Image url="@assests/images/money.png" />
                </image>
             </ImageView>
             <Label layoutX="669.0" layoutY="528.0" opacity="0.75" prefHeight="37.0" prefWidth="138.0" text="Payments" textAlignment="CENTER" textFill="#424b4f">

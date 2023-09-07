@@ -38,12 +38,12 @@
             </Label>
             <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="1007.0" layoutY="8.0" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" opacity="0.7" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@assests/images/output-onlinegiftools.gif" />
+                  <Image url="@assests/images/output-onlinegiftools.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="35.0" fitWidth="33.0" layoutX="885.0" layoutY="7.0" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@assests/images/user.gif" />
+                  <Image url="@assests/images/user.png" />
                </image>
             </ImageView>
             <Pane fx:id="detailPane" layoutX="32.0" layoutY="182.0" prefHeight="503.0" prefWidth="991.0" style="-fx-background-color: DDE7E7; -fx-background-radius: 25;">
@@ -103,7 +103,7 @@
             <Label layoutX="925.0" layoutY="11.0" prefHeight="25.0" prefWidth="89.0" text="Administrator" />
             <ImageView fx:id="imgSetting" fitHeight="92.0" fitWidth="85.0" layoutX="413.0" layoutY="73.0" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@assests/images/Setting.gif" />
+                  <Image url="@assests/images/Setting.png" />
                </image>
             </ImageView>
             <Pane fx:id="verifyPane" layoutX="32.0" layoutY="181.0" prefHeight="503.0" prefWidth="991.0" style="-fx-background-color: DDE7E7; -fx-background-radius: 25;" visible="false">

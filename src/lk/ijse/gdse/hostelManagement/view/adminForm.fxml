@@ -25,12 +25,12 @@
                   <Label layoutX="550.0" layoutY="11.0" prefHeight="25.0" prefWidth="75.0" text="Administrator" />
                   <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="631.0" layoutY="8.0" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" opacity="0.7" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@assests/images/output-onlinegiftools.gif" />
+                        <Image url="@assests/images/output-onlinegiftools.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="35.0" fitWidth="33.0" layoutX="508.0" layoutY="7.0" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" opacity="0.8" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@assests/images/user.gif" />
+                        <Image url="@assests/images/user.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="3.0" layoutY="8.0" opacity="0.7" pickOnBounds="true">
@@ -48,7 +48,7 @@
             </Label>
             <ImageView fx:id="imgSetting" fitHeight="92.0" fitWidth="85.0" layoutX="144.0" layoutY="73.0" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@assests/images/Setting.gif" />
+                  <Image url="@assests/images/Setting.png" />
                </image>
             </ImageView>
             <JFXButton layoutX="227.0" layoutY="365.0" onAction="#logInOnAction" prefHeight="27.0" prefWidth="221.0" style="-fx-background-color: #99b6d3; -fx-background-radius: 50;" text="Log in" />
