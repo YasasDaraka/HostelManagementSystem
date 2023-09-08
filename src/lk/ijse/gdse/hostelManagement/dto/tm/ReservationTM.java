@@ -2,6 +2,8 @@ package lk.ijse.gdse.hostelManagement.dto.tm;
 
 import lombok.*;
 
+import java.util.Date;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -20,4 +22,6 @@ public class ReservationTM {
     private String roomType;
 
     private String status;
+
+    private Date date;
 }

@@ -57,12 +57,13 @@
             </Label>
             <TableView fx:id="tblRes" layoutX="20.0" layoutY="450.0" prefHeight="234.0" prefWidth="1010.0" style="-fx-background-color: #ebf2ed;">
                <columns>
-                  <TableColumn fx:id="colResId" prefWidth="144.6666717529297" text="Reservation ID" />
-                  <TableColumn fx:id="colStId" prefWidth="170.3333282470703" text="Student ID" />
-                  <TableColumn fx:id="colStName" prefWidth="180.33334350585938" text="Student Name" />
-                  <TableColumn fx:id="colRoomId" prefWidth="184.66665649414062" text="Room ID" />
-                  <TableColumn fx:id="colRoomType" prefWidth="173.3333740234375" text="Room Type" />
-                  <TableColumn fx:id="colStatus" prefWidth="153.0" text="Status" />
+                  <TableColumn fx:id="colResId" prefWidth="130.66665649414062" text="Reservation ID" />
+                  <TableColumn fx:id="colStId" prefWidth="150.33334350585938" text="Student ID" />
+                  <TableColumn fx:id="colStName" prefWidth="143.66665649414062" text="Student Name" />
+                  <TableColumn fx:id="colRoomId" prefWidth="155.0" text="Room ID" />
+                  <TableColumn fx:id="colRoomType" prefWidth="156.66668701171875" text="Room Type" />
+                  <TableColumn fx:id="colStatus" prefWidth="144.0" text="Status" />
+                  <TableColumn fx:id="colDate" prefWidth="127.0" text="Date" />
                </columns>
             </TableView>
             <ComboBox fx:id="cmdStId" layoutX="238.0" layoutY="154.0" opacity="0.7" prefHeight="37.0" prefWidth="190.0" promptText="                   Student ID" style="-fx-background-radius: 50; -fx-background-color: DDE7E7;" />

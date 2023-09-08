@@ -37,6 +37,7 @@ public class ReservationDTO {
         reservation.setRoomId(this.roomDTO.getRoomId());
         reservation.setRoomType(this.roomDTO.getType());
         reservation.setStatus(this.status);
+        reservation.setDate(this.date);
         return reservation;
     }
 }

@@ -35,6 +35,7 @@ public class ReservationFormController implements Initializable {
 
     @FXML
     public AnchorPane root;
+
     @FXML
     private TableView <ReservationTM>tblRes;
     @FXML
@@ -49,6 +50,8 @@ public class ReservationFormController implements Initializable {
     private TableColumn <ReservationTM,String> colRoomType;
     @FXML
     private TableColumn <ReservationTM,String> colStatus;
+    @FXML
+    private TableColumn <ReservationTM,String> colDate;
     @FXML
     private Label lblQty;
     @FXML
@@ -93,6 +96,7 @@ public class ReservationFormController implements Initializable {
         colRoomId.setCellValueFactory (new PropertyValueFactory<> ("roomId"));
         colRoomType.setCellValueFactory (new PropertyValueFactory<> ("roomType"));
         colStatus.setCellValueFactory (new PropertyValueFactory<> ("status"));
+        colDate.setCellValueFactory (new PropertyValueFactory<> ("date"));
 
     }
     private void setSelectToTxt() {
@@ -191,7 +195,6 @@ public class ReservationFormController implements Initializable {
             RoomDTO roomDTO = new RoomDTO();
             roomDTO.setRoomId(room);
             if (res == null){
-               // if (checkReg(resId,room,st)) {
                     ReservationDTO saveRes = new ReservationDTO(resId, studentDTO, roomDTO, status,null);
                     if (reservationBO.roomQty(room) > 0) {
                         boolean isSaved = reservationBO.saveRes(saveRes);
@@ -208,7 +211,6 @@ public class ReservationFormController implements Initializable {
                         new Alert(Alert.AlertType.ERROR, "Alredy all Rooms are Full!").show();
                         cmbRmId.requestFocus();
                     }
-               // }
             }else {
                 new Alert(Alert.AlertType.ERROR, "Reservation ID Alredy Registerd!").show();
             }
@@ -217,29 +219,7 @@ public class ReservationFormController implements Initializable {
         }lblQty.setText(null);
 
     }
-    //if can use to register reservation by with one student only have one room
-    /*    private boolean checkReg(String resId,String roomId,String stid) {
-        boolean room = reservationBO.checkRoom(resId,roomId);
-        boolean student = reservationBO.checkStudent(stid);
 
-        if (student && room){
-            new Alert(Alert.AlertType.ERROR, "Alredy Student & Room Registerd").show();
-            cmdStId.requestFocus();
-            return false;
-        }if (student) {
-            new Alert(Alert.AlertType.ERROR, "Alredy Student Registerd").show();
-            cmdStId.requestFocus();
-            return false;
-        }if (room) {
-            new Alert(Alert.AlertType.ERROR, "Alredy Room Registerd").show();
-            cmbRmId.requestFocus();
-            return false;
-        }
-        if(!student && !room) {
-            return true;
-        }
-        return false;
-    }*/
     @FXML
     private void btnUpdateOnAction(ActionEvent actionEvent) throws Exception {
         if(!txtResId.getText().isEmpty() && cmdStId.getValue()!= null && cmbRmId.getValue() != null  && cmbStatus.getValue() != null) {
@@ -252,10 +232,10 @@ public class ReservationFormController implements Initializable {
             studentDTO.setStId(st);
             RoomDTO roomDTO = new RoomDTO();
             roomDTO.setRoomId(room);
-            ReservationDTO updateRes = new ReservationDTO(resId, studentDTO, roomDTO, status,res.getDate());
-        if (res != null) {
-            if (res.getStudentDTO().getStId().equals(st) && res.getRoomDTO().getRoomId().equals(room)) {
 
+        if (res != null) {
+            if (reservationBO.roomQty(room) > 0){
+            ReservationDTO updateRes = new ReservationDTO(resId, studentDTO, roomDTO, status,res.getDate());
                 boolean isupdate = reservationBO.updateRes(updateRes);
                 if (isupdate) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Reservation Update Succesfully!").show();
@@ -264,41 +244,10 @@ public class ReservationFormController implements Initializable {
                 } else {
                     new Alert(Alert.AlertType.ERROR, "Reservation Not Update!").show();
                 }
+
             } else {
-                if (reservationBO.checkStudentWithMiss(st,resId)) {
-                    new Alert(Alert.AlertType.ERROR, "Alredy Student Registerd").show();
-                    cmdStId.requestFocus();
-                } else {
-                    if (!res.getRoomDTO().getRoomId().equals(room)) {
-
-                        if (reservationBO.roomQty(room) > 0) {
-
-                            boolean isupdate = reservationBO.updateWithRoom(room, res.getRoomDTO().getRoomId(), updateRes);
-                            if (isupdate) {
-                                new Alert(Alert.AlertType.CONFIRMATION, "Reservation Update Succesfully!").show();
-                                loadAll();
-                                setValueFactory();
-                                setRoom();
-                            } else {
-                                new Alert(Alert.AlertType.ERROR, "Reservation Not Update!").show();
-                            }
-
-                        } else {
-                            new Alert(Alert.AlertType.ERROR, "Alredy all Rooms are Full!").show();
-                            cmbRmId.requestFocus();
-                        }
-
-                    } else {
-                        boolean isUpdate = reservationBO.updateRes(updateRes);
-                        if (isUpdate) {
-                            new Alert(Alert.AlertType.CONFIRMATION, "Reservation Update Succesfully!").show();
-                            tblRes.refresh();
-                        } else {
-                            new Alert(Alert.AlertType.ERROR, "Reservation Not Update!").show();
-                        }
-                    }
-
-                }
+                new Alert(Alert.AlertType.ERROR, "Alredy all Rooms are Full!").show();
+                cmbRmId.requestFocus();
             }
         }else {
             new Alert(Alert.AlertType.ERROR, "Reservation ID Not Registerd!").show();

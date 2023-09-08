@@ -25,7 +25,7 @@ public class StudentDAOImpl implements StudentDAO<Student,String> {
 
     @Override
     public void delete(Student student) {
-        session.delete (student);
+        session.remove (student);
     }
 
     @Override
