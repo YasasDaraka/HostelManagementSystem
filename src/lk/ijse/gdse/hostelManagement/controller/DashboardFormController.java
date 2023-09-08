@@ -58,7 +58,8 @@ public class DashboardFormController implements Initializable {
     }
 
     @FXML
-    private void logout(ActionEvent actionEvent) {
+    private void logout(ActionEvent actionEvent) throws IOException {
+        Navigation.navigate(Routes.LOGIN,root);
     }
 
     @FXML

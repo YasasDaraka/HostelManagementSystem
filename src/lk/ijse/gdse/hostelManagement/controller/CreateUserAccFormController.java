@@ -71,7 +71,7 @@ public class CreateUserAccFormController {
         String mail=txtMail.getText ();
 
         if (!mail.matches("^([a-z0-9]{2,})([@])([a-z]{2,9})([.])([a-z]{2,})$")) {
-            new Alert (Alert.AlertType.ERROR, "INVALID EMAIL ADDRESS").show ();
+            new Alert (Alert.AlertType.ERROR, "Invalid G-mail address").show ();
             txtMail.requestFocus ();
             return false;
         } else {

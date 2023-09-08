@@ -192,20 +192,22 @@ public class SettingFormController implements Initializable {
             UserDTO userDTO= userBO.getUser(name);
             if(userDTO != null){
                String usPass = userDTO.getPassword();
-                 if (usPass.equals(pass)){
-                     String text="Your Verification Code";
-                     code = String.valueOf (CodeGenarator.verifyCode ());
+                 if (usPass.equals(pass)) {
+                     if(check()) {
+                     String text = "Your Verification Code";
+                     code = String.valueOf(CodeGenarator.verifyCode());
                      try {
-                         Sender.outMail (code,mail,text);
+                         Sender.outMail(code, mail, text);
+                         detailPane.setVisible(false);
+                         verifyPane.setVisible(true);
+                         new Alert(Alert.AlertType.INFORMATION, "Check your G-mail inbox").show();
+                         logId = userDTO.getUserName();
+                         lblUpdateusername.setText(logId);
                      } catch (MessagingException e) {
                          e.printStackTrace();
-                         new Alert(Alert.AlertType.ERROR, "Invalid Details!").show();
+                         new Alert(Alert.AlertType.ERROR, "Check details & internet connection!").show();
                      }
-                     detailPane.setVisible(false);
-                     verifyPane.setVisible(true);
-                     new Alert (Alert.AlertType.INFORMATION, "Check your G-mail inbox").show ();
-                     logId = userDTO.getUserName();
-                     lblUpdateusername.setText(logId);
+                 }
                  }else{
                      new Alert(Alert.AlertType.ERROR, "Wrong password!").show();
                  }
@@ -216,6 +218,17 @@ public class SettingFormController implements Initializable {
 
         }else {
             new Alert(Alert.AlertType.ERROR, "Please Fill Details!").show();
+        }
+    }
+    private boolean check() {
+        String mail=txtMail.getText ();
+
+        if (!mail.matches("^([a-z0-9]{2,})([@])([a-z]{2,9})([.])([a-z]{2,})$")) {
+            new Alert (Alert.AlertType.ERROR, "Invalid G-mail address").show ();
+            txtMail.requestFocus ();
+            return false;
+        } else {
+            return true;
         }
     }
     //Verify
