@@ -56,7 +56,6 @@ public class StudentBOImpl implements StudentBO {
     public boolean deleteStudent(StudentDTO dto) {
         session = null;
         Transaction transaction = null;
-
         try {
             session = SessionFactoryConfig.getInstance().getSession();
             transaction = session.beginTransaction();
@@ -74,9 +73,7 @@ public class StudentBOImpl implements StudentBO {
                         session.update(room);
                     }
                 }
-
                 session.delete(studentToDelete);
-
                 transaction.commit();
                 return true;
             } else {
@@ -94,7 +91,6 @@ public class StudentBOImpl implements StudentBO {
         }
         return false;
     }
-
     @Override
     public StudentDTO getStudent(String id) throws Exception {
     try{
