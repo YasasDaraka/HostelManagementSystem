@@ -1,8 +1,11 @@
 package lk.ijse.gdse.hostelManagement.dao.custom.impl;
 
+import lk.ijse.gdse.hostelManagement.config.SessionFactoryConfig;
 import lk.ijse.gdse.hostelManagement.dao.custom.StudentDAO;
+import lk.ijse.gdse.hostelManagement.entity.Reservation;
 import lk.ijse.gdse.hostelManagement.entity.Student;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import java.util.List;
 
@@ -25,7 +28,9 @@ public class StudentDAOImpl implements StudentDAO<Student,String> {
 
     @Override
     public void delete(Student student) {
-        session.remove (student);
+        String id = student.getStId();
+        Student studentToDelete = session.get(Student.class, id);
+        session.delete(studentToDelete);
     }
 
     @Override

@@ -2,6 +2,7 @@ package lk.ijse.gdse.hostelManagement.dao.custom.impl;
 
 import lk.ijse.gdse.hostelManagement.dao.custom.RoomDAO;
 import lk.ijse.gdse.hostelManagement.entity.Room;
+import lk.ijse.gdse.hostelManagement.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import java.util.List;
@@ -26,7 +27,9 @@ public class RoomDAOImpl implements RoomDAO<Room,String> {
 
     @Override
     public void delete(Room room) {
-        session.delete (room);
+        String id = room.getRoomId();
+        Room delete = session.get(Room.class, id);
+        session.delete(delete);
     }
 
     @Override
